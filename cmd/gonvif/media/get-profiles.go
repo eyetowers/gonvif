@@ -1,27 +1,27 @@
-package ptz
+package media
 
 import (
 	"github.com/spf13/cobra"
 
 	"github.com/eltrac-eu/gonvif/cmd/gonvif/root"
-	"github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_onvif_org/ver20/ptz/wsdl"
+	"github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 )
 
-var getNodes = &cobra.Command{
-	Use:   "get-nodes",
-	Short: "List PTZ device nodes",
+var getProfiles = &cobra.Command{
+	Use:   "get-profiles",
+	Short: "List Onvif device media profiles",
 	Args:  cobra.NoArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password)
 		if err != nil {
 			return nil
 		}
-		return runGetNodes(client)
+		return runGetProfiles(client)
 	},
 }
 
-func runGetNodes(client wsdl.PTZ) error {
-	resp, err := client.GetNodes(&wsdl.GetNodes{})
+func runGetProfiles(client wsdl.Media2) error {
+	resp, err := client.GetProfiles(&wsdl.GetProfiles{})
 	if err != nil {
 		return err
 	}

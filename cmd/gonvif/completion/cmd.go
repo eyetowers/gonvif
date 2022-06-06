@@ -4,11 +4,13 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
+	"github.com/eltrac-eu/gonvif/cmd/gonvif/root"
 )
 
 var Command = &cobra.Command{
 	Use:                   "completion [bash|zsh|fish|powershell]",
-	Short:                 "Generate completion script",
+	Short:                 "Generate completion script.",
 	DisableFlagsInUseLine: true,
 	ValidArgs:             []string{"bash", "zsh", "fish", "powershell"},
 	Args:                  cobra.ExactValidArgs(1),
@@ -28,4 +30,8 @@ var Command = &cobra.Command{
 			os.Exit(1)
 		}
 	},
+}
+
+func init() {
+	root.Command.AddCommand(Command)
 }
