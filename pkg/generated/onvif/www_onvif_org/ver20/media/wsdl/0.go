@@ -8,7 +8,7 @@ import (
 	"github.com/hooklift/gowsdl/soap"
 	"time"
 
-	tt "github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_onvif_org/ver10/schema"
+	tt "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/schema"
 )
 
 // against "unused imports"

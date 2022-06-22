@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/eltrac-eu/gonvif/cmd/gonvif/root"
+	"github.com/eyetowers/gonvif/cmd/gonvif/root"
 )
 
 var Command = &cobra.Command{

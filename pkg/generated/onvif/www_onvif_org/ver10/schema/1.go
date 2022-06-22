@@ -8,11 +8,11 @@ import (
 	"github.com/hooklift/gowsdl/soap"
 	"time"
 
-	soapenv "github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_w3_org/2003/05/soapenvelope"
+	soapenv "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2003/05/soapenvelope"
 
-	wsnt "github.com/eltrac-eu/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/b2"
+	wsnt "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/b2"
 
-	xop "github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_w3_org/2004/08/xop/include"
+	xop "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2004/08/xop/include"
 )
 
 // against "unused imports"

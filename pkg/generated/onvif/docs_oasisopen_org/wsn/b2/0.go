@@ -8,11 +8,11 @@ import (
 	"github.com/hooklift/gowsdl/soap"
 	"time"
 
-	wsa "github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"
+	wsa "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"
 
-	wsrfbf "github.com/eltrac-eu/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsrf/bf2"
+	wsrfbf "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsrf/bf2"
 
-	wstop "github.com/eltrac-eu/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/t1"
+	wstop "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/t1"
 )
 
 // against "unused imports"

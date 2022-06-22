@@ -8,7 +8,7 @@ import (
 	"github.com/hooklift/gowsdl/soap"
 	"time"
 
-	wsa "github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"
+	wsa "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"
 )
 
 // against "unused imports"

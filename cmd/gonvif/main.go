@@ -5,10 +5,10 @@ import (
 
 	cc "github.com/ivanpirog/coloredcobra"
 
-	_ "github.com/eltrac-eu/gonvif/cmd/gonvif/completion"
-	_ "github.com/eltrac-eu/gonvif/cmd/gonvif/media"
-	_ "github.com/eltrac-eu/gonvif/cmd/gonvif/ptz"
-	"github.com/eltrac-eu/gonvif/cmd/gonvif/root"
+	_ "github.com/eyetowers/gonvif/cmd/gonvif/completion"
+	_ "github.com/eyetowers/gonvif/cmd/gonvif/media"
+	_ "github.com/eyetowers/gonvif/cmd/gonvif/ptz"
+	"github.com/eyetowers/gonvif/cmd/gonvif/root"
 )
 
 func isTerminal(file *os.File) bool {

@@ -3,8 +3,8 @@ package media
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/eltrac-eu/gonvif/cmd/gonvif/root"
-	"github.com/eltrac-eu/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
+	"github.com/eyetowers/gonvif/cmd/gonvif/root"
+	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 )
 
 var Command = &cobra.Command{

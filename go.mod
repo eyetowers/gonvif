@@ -1,4 +1,4 @@
-module github.com/eltrac-eu/gonvif
+module github.com/eyetowers/gonvif
 
 go 1.18
 
