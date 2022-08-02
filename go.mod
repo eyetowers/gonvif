@@ -19,4 +19,4 @@ require (
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 )
 
-replace github.com/hooklift/gowsdl => ../gowsdl
+replace github.com/hooklift/gowsdl => github.com/eyetowers/gowsdl v0.0.0-20220802114833-69db20e16525
