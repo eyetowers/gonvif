@@ -7,14 +7,15 @@ import (
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/ptz/wsdl"
 )
 
-var Command = &cobra.Command{
+var cmd = &cobra.Command{
 	Use:   "ptz",
 	Short: "Manipulate a PTZ device.",
 }
 
 func init() {
-	root.Command.AddCommand(Command)
-	Command.AddCommand(
+	root.RequireAuthFlags(cmd)
+	root.Command.AddCommand(cmd)
+	cmd.AddCommand(
 		getConfigurations,
 		getNodes,
 	)
