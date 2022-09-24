@@ -4373,8 +4373,6 @@ type FocusStatus20Extension struct {
 }
 
 type ImagingSettings20 struct {
-	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Imaging" json:"-"`
-
 	// Enabled/disabled BLC mode (on/off).
 	BacklightCompensation *BacklightCompensation20 `xml:"BacklightCompensation,omitempty" json:"BacklightCompensation,omitempty"`
 
