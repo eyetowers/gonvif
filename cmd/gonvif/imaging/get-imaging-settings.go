@@ -4,8 +4,8 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
-	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/schema"
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/imaging/wsdl"
+	"github.com/eyetowers/gonvif/pkg/util"
 )
 
 var getImagingSettings = &cobra.Command{
@@ -31,9 +31,8 @@ func init() {
 }
 
 func runGetImagingSettings(client wsdl.ImagingPort, token string) error {
-	t := schema.ReferenceToken(token)
 	resp, err := client.GetImagingSettings(&wsdl.GetImagingSettings{
-		VideoSourceToken: &t,
+		VideoSourceToken: util.NewReferenceTokenPtr(token),
 	})
 	if err != nil {
 		return err

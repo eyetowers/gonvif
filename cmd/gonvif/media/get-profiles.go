@@ -16,12 +16,22 @@ var getProfiles = &cobra.Command{
 		if err != nil {
 			return nil
 		}
-		return runGetProfiles(client)
+		types, err := cmd.Flags().GetStringArray("types")
+		if err != nil {
+			return nil
+		}
+		return runGetProfiles(client, types)
 	},
 }
 
-func runGetProfiles(client wsdl.Media2) error {
-	resp, err := client.GetProfiles(&wsdl.GetProfiles{})
+func init() {
+	getProfiles.Flags().StringArrayP("types", "t", []string{"All"}, "Types of profile configurations to include")
+}
+
+func runGetProfiles(client wsdl.Media2, types []string) error {
+	resp, err := client.GetProfiles(&wsdl.GetProfiles{
+		Type: types,
+	})
 	if err != nil {
 		return err
 	}

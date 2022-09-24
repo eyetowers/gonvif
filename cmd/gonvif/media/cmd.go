@@ -16,6 +16,7 @@ func init() {
 	root.Command.AddCommand(Command)
 	Command.AddCommand(
 		getProfiles,
+		getVideoSourceConfigurations,
 	)
 }
 
