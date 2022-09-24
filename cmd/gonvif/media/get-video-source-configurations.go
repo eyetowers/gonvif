@@ -8,6 +8,11 @@ import (
 	"github.com/eyetowers/gonvif/pkg/util"
 )
 
+var (
+	configurationToken string
+	profileToken       string
+)
+
 var getVideoSourceConfigurations = &cobra.Command{
 	Use:   "get-video-source-configurations",
 	Short: "List Onvif device video source configurations",
@@ -17,21 +22,13 @@ var getVideoSourceConfigurations = &cobra.Command{
 		if err != nil {
 			return nil
 		}
-		configurationToken, err := cmd.Flags().GetString("configuration_token")
-		if err != nil {
-			return nil
-		}
-		profileToken, err := cmd.Flags().GetString("profile_token")
-		if err != nil {
-			return nil
-		}
 		return runGetVideoSourceConfigurations(client, configurationToken, profileToken)
 	},
 }
 
 func init() {
-	getVideoSourceConfigurations.Flags().StringP("configuration_token", "c", "", "Token of the requested configuration")
-	getVideoSourceConfigurations.Flags().StringP("profile_token", "t", "", "Contains the token of an existing media profile the configurations shall be compatible with")
+	getVideoSourceConfigurations.Flags().StringVarP(&configurationToken, "configuration_token", "c", "", "Token of the requested configuration")
+	getVideoSourceConfigurations.Flags().StringVarP(&profileToken, "profile_token", "t", "", "Contains the token of an existing media profile the configurations shall be compatible with")
 }
 
 func runGetVideoSourceConfigurations(

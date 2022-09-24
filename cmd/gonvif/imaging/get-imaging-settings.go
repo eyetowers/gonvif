@@ -8,6 +8,10 @@ import (
 	"github.com/eyetowers/gonvif/pkg/util"
 )
 
+var (
+	videoSourceToken string
+)
+
 var getImagingSettings = &cobra.Command{
 	Use:   "get-imaging-settings",
 	Short: "Show Onvif device imaging settings",
@@ -17,22 +21,18 @@ var getImagingSettings = &cobra.Command{
 		if err != nil {
 			return nil
 		}
-		videoSourceToken, err := cmd.Flags().GetString("video_source_token")
-		if err != nil {
-			return nil
-		}
 		return runGetImagingSettings(client, videoSourceToken)
 	},
 }
 
 func init() {
-	getImagingSettings.Flags().StringP("video_source_token", "t", "", "Video source token")
+	getImagingSettings.Flags().StringVarP(&videoSourceToken, "video_source_token", "t", "", "Video source token")
 	getImagingSettings.MarkFlagRequired("video_source_token")
 }
 
-func runGetImagingSettings(client wsdl.ImagingPort, token string) error {
+func runGetImagingSettings(client wsdl.ImagingPort, videoSourceToken string) error {
 	resp, err := client.GetImagingSettings(&wsdl.GetImagingSettings{
-		VideoSourceToken: util.NewReferenceTokenPtr(token),
+		VideoSourceToken: util.NewReferenceTokenPtr(videoSourceToken),
 	})
 	if err != nil {
 		return err

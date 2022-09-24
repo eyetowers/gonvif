@@ -7,6 +7,10 @@ import (
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 )
 
+var (
+	types []string
+)
+
 var getProfiles = &cobra.Command{
 	Use:   "get-profiles",
 	Short: "List Onvif device media profiles",
@@ -16,16 +20,12 @@ var getProfiles = &cobra.Command{
 		if err != nil {
 			return nil
 		}
-		types, err := cmd.Flags().GetStringArray("types")
-		if err != nil {
-			return nil
-		}
 		return runGetProfiles(client, types)
 	},
 }
 
 func init() {
-	getProfiles.Flags().StringArrayP("types", "t", []string{"All"}, "Types of profile configurations to include")
+	getProfiles.Flags().StringArrayVarP(&types, "types", "t", []string{"All"}, "Types of profile configurations to include")
 }
 
 func runGetProfiles(client wsdl.Media2, types []string) error {
