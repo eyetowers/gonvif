@@ -17,6 +17,7 @@ func init() {
 	root.Command.AddCommand(cmd)
 	cmd.AddCommand(
 		getImagingSettings,
+		getServiceCapabilities,
 	)
 }
 
