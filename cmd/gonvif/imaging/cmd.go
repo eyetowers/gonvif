@@ -19,10 +19,10 @@ func init() {
 	)
 }
 
-func ServiceClient(url, username, password string) (wsdl.ImagingPort, error) {
+func ServiceClient(url, username, password string, vebose bool) (wsdl.ImagingPort, error) {
 	serviceURL, err := root.ServiceURL(url, "onvif/Imaging")
 	if err != nil {
 		return nil, err
 	}
-	return wsdl.NewImagingPort(root.AuthorizedSOAPClient(serviceURL, username, password)), nil
+	return wsdl.NewImagingPort(root.AuthorizedSOAPClient(serviceURL, username, password, vebose)), nil
 }

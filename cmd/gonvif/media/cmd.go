@@ -20,10 +20,10 @@ func init() {
 	)
 }
 
-func ServiceClient(url, username, password string) (wsdl.Media2, error) {
+func ServiceClient(url, username, password string, verbose bool) (wsdl.Media2, error) {
 	serviceURL, err := root.ServiceURL(url, "onvif/Media")
 	if err != nil {
 		return nil, err
 	}
-	return wsdl.NewMedia2(root.AuthorizedSOAPClient(serviceURL, username, password)), nil
+	return wsdl.NewMedia2(root.AuthorizedSOAPClient(serviceURL, username, password, verbose)), nil
 }

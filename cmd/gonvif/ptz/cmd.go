@@ -20,10 +20,10 @@ func init() {
 	)
 }
 
-func ServiceClient(url, username, password string) (wsdl.PTZ, error) {
+func ServiceClient(url, username, password string, verbose bool) (wsdl.PTZ, error) {
 	u, err := root.ServiceURL(url, "onvif/PTZ")
 	if err != nil {
 		return nil, err
 	}
-	return wsdl.NewPTZ(root.AuthorizedSOAPClient(u, username, password)), nil
+	return wsdl.NewPTZ(root.AuthorizedSOAPClient(u, username, password, verbose)), nil
 }
