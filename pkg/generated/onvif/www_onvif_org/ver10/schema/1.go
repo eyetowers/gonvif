@@ -2895,8 +2895,6 @@ type SystemCapabilitiesExtension2 struct {
 }
 
 type OnvifVersion struct {
-	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema SupportedVersions" json:"-"`
-
 	// Major version number.
 	Major int32 `xml:"Major,omitempty" json:"Major,omitempty"`
 
