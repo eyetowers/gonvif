@@ -22,6 +22,7 @@ func init() {
 		getServiceCapabilities,
 		getStatus,
 		moveContinuous,
+		setImagingSettingsAutoFocus,
 	)
 }
 
