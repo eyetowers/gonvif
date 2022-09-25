@@ -670,7 +670,7 @@ type ConfigurationRef struct {
 type ReceiverConfiguration struct {
 	*tt.ReceiverConfiguration
 
-	Token *tt.ReferenceToken `xml:"http://www.onvif.org/ver20/media/wsdl token,attr,omitempty" json:"token,omitempty"`
+	Token *tt.ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type ConfigurationSet struct {
@@ -720,7 +720,7 @@ type MediaProfile struct {
 
 	// Unique identifier of the profile.
 
-	Token *tt.ReferenceToken `xml:"http://www.onvif.org/ver20/media/wsdl token,attr,omitempty" json:"token,omitempty"`
+	Token *tt.ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 
 	// A value of true signals that the profile cannot be deleted. Default is false.
 
@@ -789,7 +789,7 @@ type VideoSourceMode struct {
 
 	// Indicate token for video source mode.
 
-	Token *tt.ReferenceToken `xml:"http://www.onvif.org/ver20/media/wsdl token,attr,omitempty" json:"token,omitempty"`
+	Token *tt.ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 
 	// Indication of whether this mode is active. If active this value is true. In case of non-indication, it means as false. The value of true shall be had by only one video source mode.
 
@@ -818,7 +818,7 @@ type Mask struct {
 
 	// Token of the mask.
 
-	Token *tt.ReferenceToken `xml:"http://www.onvif.org/ver20/media/wsdl token,attr,omitempty" json:"token,omitempty"`
+	Token *tt.ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type MaskOptions struct {

@@ -272,7 +272,7 @@ type ImagingPreset struct {
 
 	// Unique identifier of this Imaging Preset.
 
-	Token *tt.ReferenceToken `xml:"http://www.onvif.org/ver20/imaging/wsdl token,attr,omitempty" json:"token,omitempty"`
+	Token *tt.ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 
 	// Indicates Imaging Preset Type. Use timg:ImagingPresetType.
 	// Used for multi-language support and display.

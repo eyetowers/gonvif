@@ -878,7 +878,7 @@ type DeviceEntity struct {
 
 	// Unique identifier referencing the physical entity.
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema token,attr,omitempty" json:"token,omitempty"`
+	Token *ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type IntRectangle struct {
@@ -1002,7 +1002,7 @@ type Profile struct {
 
 	// Unique identifier of the profile.
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema token,attr,omitempty" json:"token,omitempty"`
+	Token *ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 
 	// A value of true signals that the profile cannot be deleted. Default is false.
 
@@ -1039,7 +1039,7 @@ type ConfigurationEntity struct {
 
 	// Token that uniquely references this configuration. Length up to 64 characters.
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema token,attr,omitempty" json:"token,omitempty"`
+	Token *ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type VideoSourceConfiguration struct {
@@ -3764,7 +3764,7 @@ type PTZPreset struct {
 	//
 	PTZPosition *PTZVector `xml:"PTZPosition,omitempty" json:"PTZPosition,omitempty"`
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema token,attr,omitempty" json:"token,omitempty"`
+	Token *ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type PresetTour struct {
@@ -3788,7 +3788,7 @@ type PresetTour struct {
 
 	// Unique identifier of this preset tour.
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema token,attr,omitempty" json:"token,omitempty"`
+	Token *ReferenceToken `xml:"token,attr,omitempty" json:"token,omitempty"`
 }
 
 type PTZPresetTourExtension struct {
