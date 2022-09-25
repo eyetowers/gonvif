@@ -22,7 +22,7 @@ func init() {
 }
 
 func ServiceClient(url, username, password string, verbose bool) (wsdl.Media2, error) {
-	serviceURL, err := root.ServiceURL(url, "onvif/Media")
+	serviceURL, err := root.ServiceURL(url, "onvif/Media2")
 	if err != nil {
 		return nil, err
 	}
