@@ -6,6 +6,7 @@ import (
 	cc "github.com/ivanpirog/coloredcobra"
 
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/completion"
+	_ "github.com/eyetowers/gonvif/cmd/gonvif/device"
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/imaging"
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/media"
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/ptz"
