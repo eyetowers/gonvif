@@ -20,6 +20,7 @@ func init() {
 		getMoveOptions,
 		getOptions,
 		getServiceCapabilities,
+		getStatus,
 	)
 }
 
