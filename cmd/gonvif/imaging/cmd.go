@@ -21,6 +21,7 @@ func init() {
 		getOptions,
 		getServiceCapabilities,
 		getStatus,
+		moveContinuous,
 	)
 }
 
