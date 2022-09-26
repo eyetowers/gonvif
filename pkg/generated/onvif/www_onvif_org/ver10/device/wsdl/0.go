@@ -1358,39 +1358,39 @@ type NetworkCapabilities struct {
 
 	// Indicates support for IP filtering.
 
-	IPFilter bool `xml:"http://www.onvif.org/ver10/device/wsdl IPFilter,attr,omitempty" json:"IPFilter,omitempty"`
+	IPFilter bool `xml:"IPFilter,attr,omitempty" json:"IPFilter,omitempty"`
 
 	// Indicates support for zeroconf.
 
-	ZeroConfiguration bool `xml:"http://www.onvif.org/ver10/device/wsdl ZeroConfiguration,attr,omitempty" json:"ZeroConfiguration,omitempty"`
+	ZeroConfiguration bool `xml:"ZeroConfiguration,attr,omitempty" json:"ZeroConfiguration,omitempty"`
 
 	// Indicates support for IPv6.
 
-	IPVersion6 bool `xml:"http://www.onvif.org/ver10/device/wsdl IPVersion6,attr,omitempty" json:"IPVersion6,omitempty"`
+	IPVersion6 bool `xml:"IPVersion6,attr,omitempty" json:"IPVersion6,omitempty"`
 
 	// Indicates support for dynamic DNS configuration.
 
-	DynDNS bool `xml:"http://www.onvif.org/ver10/device/wsdl DynDNS,attr,omitempty" json:"DynDNS,omitempty"`
+	DynDNS bool `xml:"DynDNS,attr,omitempty" json:"DynDNS,omitempty"`
 
 	// Indicates support for IEEE 802.11 configuration.
 
-	Dot11Configuration bool `xml:"http://www.onvif.org/ver10/device/wsdl Dot11Configuration,attr,omitempty" json:"Dot11Configuration,omitempty"`
+	Dot11Configuration bool `xml:"Dot11Configuration,attr,omitempty" json:"Dot11Configuration,omitempty"`
 
 	// Indicates the maximum number of Dot1X configurations supported by the device
 
-	Dot1XConfigurations int32 `xml:"http://www.onvif.org/ver10/device/wsdl Dot1XConfigurations,attr,omitempty" json:"Dot1XConfigurations,omitempty"`
+	Dot1XConfigurations int32 `xml:"Dot1XConfigurations,attr,omitempty" json:"Dot1XConfigurations,omitempty"`
 
 	// Indicates support for retrieval of hostname from DHCP.
 
-	HostnameFromDHCP bool `xml:"http://www.onvif.org/ver10/device/wsdl HostnameFromDHCP,attr,omitempty" json:"HostnameFromDHCP,omitempty"`
+	HostnameFromDHCP bool `xml:"HostnameFromDHCP,attr,omitempty" json:"HostnameFromDHCP,omitempty"`
 
 	// Maximum number of NTP servers supported by the devices SetNTP command.
 
-	NTP int32 `xml:"http://www.onvif.org/ver10/device/wsdl NTP,attr,omitempty" json:"NTP,omitempty"`
+	NTP int32 `xml:"NTP,attr,omitempty" json:"NTP,omitempty"`
 
 	// Indicates support for Stateful IPv6 DHCP.
 
-	DHCPv6 bool `xml:"http://www.onvif.org/ver10/device/wsdl DHCPv6,attr,omitempty" json:"DHCPv6,omitempty"`
+	DHCPv6 bool `xml:"DHCPv6,attr,omitempty" json:"DHCPv6,omitempty"`
 }
 
 type SecurityCapabilities struct {
@@ -1398,83 +1398,83 @@ type SecurityCapabilities struct {
 
 	// Indicates support for TLS 1.0.
 
-	TLS1_0 bool `xml:"http://www.onvif.org/ver10/device/wsdl TLS1.0,attr,omitempty" json:"TLS1.0,omitempty"`
+	TLS1_0 bool `xml:"TLS1.0,attr,omitempty" json:"TLS1.0,omitempty"`
 
 	// Indicates support for TLS 1.1.
 
-	TLS1_1 bool `xml:"http://www.onvif.org/ver10/device/wsdl TLS1.1,attr,omitempty" json:"TLS1.1,omitempty"`
+	TLS1_1 bool `xml:"TLS1.1,attr,omitempty" json:"TLS1.1,omitempty"`
 
 	// Indicates support for TLS 1.2.
 
-	TLS1_2 bool `xml:"http://www.onvif.org/ver10/device/wsdl TLS1.2,attr,omitempty" json:"TLS1.2,omitempty"`
+	TLS1_2 bool `xml:"TLS1.2,attr,omitempty" json:"TLS1.2,omitempty"`
 
 	// Indicates support for onboard key generation.
 
-	OnboardKeyGeneration bool `xml:"http://www.onvif.org/ver10/device/wsdl OnboardKeyGeneration,attr,omitempty" json:"OnboardKeyGeneration,omitempty"`
+	OnboardKeyGeneration bool `xml:"OnboardKeyGeneration,attr,omitempty" json:"OnboardKeyGeneration,omitempty"`
 
 	// Indicates support for access policy configuration.
 
-	AccessPolicyConfig bool `xml:"http://www.onvif.org/ver10/device/wsdl AccessPolicyConfig,attr,omitempty" json:"AccessPolicyConfig,omitempty"`
+	AccessPolicyConfig bool `xml:"AccessPolicyConfig,attr,omitempty" json:"AccessPolicyConfig,omitempty"`
 
 	// Indicates support for the ONVIF default access policy.
 
-	DefaultAccessPolicy bool `xml:"http://www.onvif.org/ver10/device/wsdl DefaultAccessPolicy,attr,omitempty" json:"DefaultAccessPolicy,omitempty"`
+	DefaultAccessPolicy bool `xml:"DefaultAccessPolicy,attr,omitempty" json:"DefaultAccessPolicy,omitempty"`
 
 	// Indicates support for IEEE 802.1X configuration.
 
-	Dot1X bool `xml:"http://www.onvif.org/ver10/device/wsdl Dot1X,attr,omitempty" json:"Dot1X,omitempty"`
+	Dot1X bool `xml:"Dot1X,attr,omitempty" json:"Dot1X,omitempty"`
 
 	// Indicates support for remote user configuration. Used when accessing another device.
 
-	RemoteUserHandling bool `xml:"http://www.onvif.org/ver10/device/wsdl RemoteUserHandling,attr,omitempty" json:"RemoteUserHandling,omitempty"`
+	RemoteUserHandling bool `xml:"RemoteUserHandling,attr,omitempty" json:"RemoteUserHandling,omitempty"`
 
 	// Indicates support for WS-Security X.509 token.
 
-	X_509Token bool `xml:"http://www.onvif.org/ver10/device/wsdl X.509Token,attr,omitempty" json:"X.509Token,omitempty"`
+	X_509Token bool `xml:"X.509Token,attr,omitempty" json:"X.509Token,omitempty"`
 
 	// Indicates support for WS-Security SAML token.
 
-	SAMLToken bool `xml:"http://www.onvif.org/ver10/device/wsdl SAMLToken,attr,omitempty" json:"SAMLToken,omitempty"`
+	SAMLToken bool `xml:"SAMLToken,attr,omitempty" json:"SAMLToken,omitempty"`
 
 	// Indicates support for WS-Security Kerberos token.
 
-	KerberosToken bool `xml:"http://www.onvif.org/ver10/device/wsdl KerberosToken,attr,omitempty" json:"KerberosToken,omitempty"`
+	KerberosToken bool `xml:"KerberosToken,attr,omitempty" json:"KerberosToken,omitempty"`
 
 	// Indicates support for WS-Security Username token.
 
-	UsernameToken bool `xml:"http://www.onvif.org/ver10/device/wsdl UsernameToken,attr,omitempty" json:"UsernameToken,omitempty"`
+	UsernameToken bool `xml:"UsernameToken,attr,omitempty" json:"UsernameToken,omitempty"`
 
 	// Indicates support for WS over HTTP digest authenticated communication layer.
 
-	HttpDigest bool `xml:"http://www.onvif.org/ver10/device/wsdl HttpDigest,attr,omitempty" json:"HttpDigest,omitempty"`
+	HttpDigest bool `xml:"HttpDigest,attr,omitempty" json:"HttpDigest,omitempty"`
 
 	// Indicates support for WS-Security REL token.
 
-	RELToken bool `xml:"http://www.onvif.org/ver10/device/wsdl RELToken,attr,omitempty" json:"RELToken,omitempty"`
+	RELToken bool `xml:"RELToken,attr,omitempty" json:"RELToken,omitempty"`
 
 	// EAP Methods supported by the device. The int values refer to the .
 
-	SupportedEAPMethods *tt.IntList `xml:"http://www.onvif.org/ver10/device/wsdl SupportedEAPMethods,attr,omitempty" json:"SupportedEAPMethods,omitempty"`
+	SupportedEAPMethods *tt.IntList `xml:"SupportedEAPMethods,attr,omitempty" json:"SupportedEAPMethods,omitempty"`
 
 	// The maximum number of users that the device supports.
 
-	MaxUsers int32 `xml:"http://www.onvif.org/ver10/device/wsdl MaxUsers,attr,omitempty" json:"MaxUsers,omitempty"`
+	MaxUsers int32 `xml:"MaxUsers,attr,omitempty" json:"MaxUsers,omitempty"`
 
 	// Maximum number of characters supported for the username by CreateUsers.
 
-	MaxUserNameLength int32 `xml:"http://www.onvif.org/ver10/device/wsdl MaxUserNameLength,attr,omitempty" json:"MaxUserNameLength,omitempty"`
+	MaxUserNameLength int32 `xml:"MaxUserNameLength,attr,omitempty" json:"MaxUserNameLength,omitempty"`
 
 	// Maximum number of characters supported for the password by CreateUsers and SetUser.
 
-	MaxPasswordLength int32 `xml:"http://www.onvif.org/ver10/device/wsdl MaxPasswordLength,attr,omitempty" json:"MaxPasswordLength,omitempty"`
+	MaxPasswordLength int32 `xml:"MaxPasswordLength,attr,omitempty" json:"MaxPasswordLength,omitempty"`
 
 	// Indicates which security policies are supported. Options are: ModifyPassword, PasswordComplexity, AuthFailureWarnings
 
-	SecurityPolicies *tt.StringList `xml:"http://www.onvif.org/ver10/device/wsdl SecurityPolicies,attr,omitempty" json:"SecurityPolicies,omitempty"`
+	SecurityPolicies *tt.StringList `xml:"SecurityPolicies,attr,omitempty" json:"SecurityPolicies,omitempty"`
 
 	// Maximum number of passwords that the device can remember for each user
 
-	MaxPasswordHistory int32 `xml:"http://www.onvif.org/ver10/device/wsdl MaxPasswordHistory,attr,omitempty" json:"MaxPasswordHistory,omitempty"`
+	MaxPasswordHistory int32 `xml:"MaxPasswordHistory,attr,omitempty" json:"MaxPasswordHistory,omitempty"`
 }
 
 type SystemCapabilities struct {
@@ -1482,79 +1482,79 @@ type SystemCapabilities struct {
 
 	// Indicates support for WS Discovery resolve requests.
 
-	DiscoveryResolve bool `xml:"http://www.onvif.org/ver10/device/wsdl DiscoveryResolve,attr,omitempty" json:"DiscoveryResolve,omitempty"`
+	DiscoveryResolve bool `xml:"DiscoveryResolve,attr,omitempty" json:"DiscoveryResolve,omitempty"`
 
 	// Indicates support for WS-Discovery Bye.
 
-	DiscoveryBye bool `xml:"http://www.onvif.org/ver10/device/wsdl DiscoveryBye,attr,omitempty" json:"DiscoveryBye,omitempty"`
+	DiscoveryBye bool `xml:"DiscoveryBye,attr,omitempty" json:"DiscoveryBye,omitempty"`
 
 	// Indicates support for remote discovery.
 
-	RemoteDiscovery bool `xml:"http://www.onvif.org/ver10/device/wsdl RemoteDiscovery,attr,omitempty" json:"RemoteDiscovery,omitempty"`
+	RemoteDiscovery bool `xml:"RemoteDiscovery,attr,omitempty" json:"RemoteDiscovery,omitempty"`
 
 	// Indicates support for system backup through MTOM.
 
-	SystemBackup bool `xml:"http://www.onvif.org/ver10/device/wsdl SystemBackup,attr,omitempty" json:"SystemBackup,omitempty"`
+	SystemBackup bool `xml:"SystemBackup,attr,omitempty" json:"SystemBackup,omitempty"`
 
 	// Indicates support for retrieval of system logging through MTOM.
 
-	SystemLogging bool `xml:"http://www.onvif.org/ver10/device/wsdl SystemLogging,attr,omitempty" json:"SystemLogging,omitempty"`
+	SystemLogging bool `xml:"SystemLogging,attr,omitempty" json:"SystemLogging,omitempty"`
 
 	// Indicates support for firmware upgrade through MTOM.
 
-	FirmwareUpgrade bool `xml:"http://www.onvif.org/ver10/device/wsdl FirmwareUpgrade,attr,omitempty" json:"FirmwareUpgrade,omitempty"`
+	FirmwareUpgrade bool `xml:"FirmwareUpgrade,attr,omitempty" json:"FirmwareUpgrade,omitempty"`
 
 	// Indicates support for firmware upgrade through HTTP.
 
-	HttpFirmwareUpgrade bool `xml:"http://www.onvif.org/ver10/device/wsdl HttpFirmwareUpgrade,attr,omitempty" json:"HttpFirmwareUpgrade,omitempty"`
+	HttpFirmwareUpgrade bool `xml:"HttpFirmwareUpgrade,attr,omitempty" json:"HttpFirmwareUpgrade,omitempty"`
 
 	// Indicates support for system backup through HTTP.
 
-	HttpSystemBackup bool `xml:"http://www.onvif.org/ver10/device/wsdl HttpSystemBackup,attr,omitempty" json:"HttpSystemBackup,omitempty"`
+	HttpSystemBackup bool `xml:"HttpSystemBackup,attr,omitempty" json:"HttpSystemBackup,omitempty"`
 
 	// Indicates support for retrieval of system logging through HTTP.
 
-	HttpSystemLogging bool `xml:"http://www.onvif.org/ver10/device/wsdl HttpSystemLogging,attr,omitempty" json:"HttpSystemLogging,omitempty"`
+	HttpSystemLogging bool `xml:"HttpSystemLogging,attr,omitempty" json:"HttpSystemLogging,omitempty"`
 
 	// Indicates support for retrieving support information through HTTP.
 
-	HttpSupportInformation bool `xml:"http://www.onvif.org/ver10/device/wsdl HttpSupportInformation,attr,omitempty" json:"HttpSupportInformation,omitempty"`
+	HttpSupportInformation bool `xml:"HttpSupportInformation,attr,omitempty" json:"HttpSupportInformation,omitempty"`
 
 	// Indicates support for storage configuration interfaces.
 
-	StorageConfiguration bool `xml:"http://www.onvif.org/ver10/device/wsdl StorageConfiguration,attr,omitempty" json:"StorageConfiguration,omitempty"`
+	StorageConfiguration bool `xml:"StorageConfiguration,attr,omitempty" json:"StorageConfiguration,omitempty"`
 
 	// Indicates maximum number of storage configurations supported.
 
-	MaxStorageConfigurations int32 `xml:"http://www.onvif.org/ver10/device/wsdl MaxStorageConfigurations,attr,omitempty" json:"MaxStorageConfigurations,omitempty"`
+	MaxStorageConfigurations int32 `xml:"MaxStorageConfigurations,attr,omitempty" json:"MaxStorageConfigurations,omitempty"`
 
 	// If present signals support for geo location. The value signals the supported number of entries.
 
-	GeoLocationEntries int32 `xml:"http://www.onvif.org/ver10/device/wsdl GeoLocationEntries,attr,omitempty" json:"GeoLocationEntries,omitempty"`
+	GeoLocationEntries int32 `xml:"GeoLocationEntries,attr,omitempty" json:"GeoLocationEntries,omitempty"`
 
 	// List of supported automatic GeoLocation adjustment supported by the device. Valid items are defined by tds:AutoGeoMode.
 
-	AutoGeo *tt.StringAttrList `xml:"http://www.onvif.org/ver10/device/wsdl AutoGeo,attr,omitempty" json:"AutoGeo,omitempty"`
+	AutoGeo *tt.StringAttrList `xml:"AutoGeo,attr,omitempty" json:"AutoGeo,omitempty"`
 
 	// Enumerates the supported StorageTypes, see tds:StorageType.
 
-	StorageTypesSupported *tt.StringAttrList `xml:"http://www.onvif.org/ver10/device/wsdl StorageTypesSupported,attr,omitempty" json:"StorageTypesSupported,omitempty"`
+	StorageTypesSupported *tt.StringAttrList `xml:"StorageTypesSupported,attr,omitempty" json:"StorageTypesSupported,omitempty"`
 
 	// Indicates no support for network discovery.
 
-	DiscoveryNotSupported bool `xml:"http://www.onvif.org/ver10/device/wsdl DiscoveryNotSupported,attr,omitempty" json:"DiscoveryNotSupported,omitempty"`
+	DiscoveryNotSupported bool `xml:"DiscoveryNotSupported,attr,omitempty" json:"DiscoveryNotSupported,omitempty"`
 
 	// Indicates no support for network configuration.
 
-	NetworkConfigNotSupported bool `xml:"http://www.onvif.org/ver10/device/wsdl NetworkConfigNotSupported,attr,omitempty" json:"NetworkConfigNotSupported,omitempty"`
+	NetworkConfigNotSupported bool `xml:"NetworkConfigNotSupported,attr,omitempty" json:"NetworkConfigNotSupported,omitempty"`
 
 	// Indicates no support for user configuration.
 
-	UserConfigNotSupported bool `xml:"http://www.onvif.org/ver10/device/wsdl UserConfigNotSupported,attr,omitempty" json:"UserConfigNotSupported,omitempty"`
+	UserConfigNotSupported bool `xml:"UserConfigNotSupported,attr,omitempty" json:"UserConfigNotSupported,omitempty"`
 
 	// List of supported Addons by the device.
 
-	Addons *tt.StringAttrList `xml:"http://www.onvif.org/ver10/device/wsdl Addons,attr,omitempty" json:"Addons,omitempty"`
+	Addons *tt.StringAttrList `xml:"Addons,attr,omitempty" json:"Addons,omitempty"`
 }
 
 type MiscCapabilities struct {
@@ -1562,7 +1562,7 @@ type MiscCapabilities struct {
 
 	// Lists of commands supported by SendAuxiliaryCommand.
 
-	AuxiliaryCommands *tt.StringAttrList `xml:"http://www.onvif.org/ver10/device/wsdl AuxiliaryCommands,attr,omitempty" json:"AuxiliaryCommands,omitempty"`
+	AuxiliaryCommands *tt.StringAttrList `xml:"AuxiliaryCommands,attr,omitempty" json:"AuxiliaryCommands,omitempty"`
 }
 
 type UserCredential struct {
@@ -1594,7 +1594,7 @@ type StorageConfigurationData struct {
 
 	// StorageType lists the acceptable values for type attribute
 
-	Type string `xml:"http://www.onvif.org/ver10/device/wsdl type,attr,omitempty" json:"type,omitempty"`
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
 }
 
 type StorageConfiguration struct {

@@ -20,11 +20,11 @@ type Base64Binary struct {
 
 	Value []byte `xml:",chardata" json:",omitempty"`
 
-	ContentType string `xml:"http://www.w3.org/2005/05/xmlmime contentType,attr,omitempty" json:"contentType,omitempty"`
+	ContentType string `xml:"contentType,attr,omitempty" json:"contentType,omitempty"`
 }
 
 type HexBinary struct {
 	Value []byte `xml:",chardata" json:",omitempty"`
 
-	ContentType string `xml:"http://www.w3.org/2005/05/xmlmime contentType,attr,omitempty" json:"contentType,omitempty"`
+	ContentType string `xml:"contentType,attr,omitempty" json:"contentType,omitempty"`
 }

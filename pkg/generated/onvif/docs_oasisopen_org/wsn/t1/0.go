@@ -38,7 +38,7 @@ type ExtensibleDocumented struct {
 type QueryExpressionType struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Dialect string `xml:"http://docs.oasis-open.org/wsn/t-1 Dialect,attr,omitempty" json:"Dialect,omitempty"`
+	Dialect string `xml:"Dialect,attr,omitempty" json:"Dialect,omitempty"`
 }
 
 type TopicNamespaceType struct {
@@ -49,14 +49,14 @@ type TopicNamespaceType struct {
 	Topic []struct {
 		*TopicType
 
-		Parent *ConcreteTopicExpression `xml:"http://docs.oasis-open.org/wsn/t-1 parent,attr,omitempty" json:"parent,omitempty"`
+		Parent *ConcreteTopicExpression `xml:"parent,attr,omitempty" json:"parent,omitempty"`
 	} `xml:"Topic,omitempty" json:"Topic,omitempty"`
 
-	Name string `xml:"http://docs.oasis-open.org/wsn/t-1 name,attr,omitempty" json:"name,omitempty"`
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
 
-	TargetNamespace string `xml:"http://docs.oasis-open.org/wsn/t-1 targetNamespace,attr,omitempty" json:"targetNamespace,omitempty"`
+	TargetNamespace string `xml:"targetNamespace,attr,omitempty" json:"targetNamespace,omitempty"`
 
-	Final bool `xml:"http://docs.oasis-open.org/wsn/t-1 final,attr,omitempty" json:"final,omitempty"`
+	Final bool `xml:"final,attr,omitempty" json:"final,omitempty"`
 }
 
 type TopicType struct {
@@ -68,11 +68,11 @@ type TopicType struct {
 
 	Topic []*TopicType `xml:"Topic,omitempty" json:"Topic,omitempty"`
 
-	Name string `xml:"http://docs.oasis-open.org/wsn/t-1 name,attr,omitempty" json:"name,omitempty"`
+	Name string `xml:"name,attr,omitempty" json:"name,omitempty"`
 
-	MessageTypes string `xml:"http://docs.oasis-open.org/wsn/t-1 messageTypes,attr,omitempty" json:"messageTypes,omitempty"`
+	MessageTypes string `xml:"messageTypes,attr,omitempty" json:"messageTypes,omitempty"`
 
-	Final bool `xml:"http://docs.oasis-open.org/wsn/t-1 final,attr,omitempty" json:"final,omitempty"`
+	Final bool `xml:"final,attr,omitempty" json:"final,omitempty"`
 }
 
 type TopicSetType struct {

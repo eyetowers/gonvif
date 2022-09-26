@@ -584,33 +584,33 @@ type Capabilities2 struct {
 
 	// Indicates if GetSnapshotUri is supported.
 
-	SnapshotUri bool `xml:"http://www.onvif.org/ver20/media/wsdl SnapshotUri,attr,omitempty" json:"SnapshotUri,omitempty"`
+	SnapshotUri bool `xml:"SnapshotUri,attr,omitempty" json:"SnapshotUri,omitempty"`
 
 	// Indicates whether or not Rotation feature is supported.
 
-	Rotation bool `xml:"http://www.onvif.org/ver20/media/wsdl Rotation,attr,omitempty" json:"Rotation,omitempty"`
+	Rotation bool `xml:"Rotation,attr,omitempty" json:"Rotation,omitempty"`
 
 	// Indicates the support for changing video source mode.
 
-	VideoSourceMode bool `xml:"http://www.onvif.org/ver20/media/wsdl VideoSourceMode,attr,omitempty" json:"VideoSourceMode,omitempty"`
+	VideoSourceMode bool `xml:"VideoSourceMode,attr,omitempty" json:"VideoSourceMode,omitempty"`
 
 	// Indicates if OSD is supported.
 
-	OSD bool `xml:"http://www.onvif.org/ver20/media/wsdl OSD,attr,omitempty" json:"OSD,omitempty"`
+	OSD bool `xml:"OSD,attr,omitempty" json:"OSD,omitempty"`
 
 	// Indicates the support for temporary osd text configuration.
 
-	TemporaryOSDText bool `xml:"http://www.onvif.org/ver20/media/wsdl TemporaryOSDText,attr,omitempty" json:"TemporaryOSDText,omitempty"`
+	TemporaryOSDText bool `xml:"TemporaryOSDText,attr,omitempty" json:"TemporaryOSDText,omitempty"`
 
 	// Indicates if Masking is supported.
 
-	Mask bool `xml:"http://www.onvif.org/ver20/media/wsdl Mask,attr,omitempty" json:"Mask,omitempty"`
+	Mask bool `xml:"Mask,attr,omitempty" json:"Mask,omitempty"`
 
 	// Indicates that privacy masks are only supported at the video source level and not the video source configuration level.
 	// If this is true any addition, deletion or change of a privacy mask done for one video source configuration will automatically be
 	// applied by the device to a corresponding privacy mask for all other video source configuration associated with the same video source.
 
-	SourceMask bool `xml:"http://www.onvif.org/ver20/media/wsdl SourceMask,attr,omitempty" json:"SourceMask,omitempty"`
+	SourceMask bool `xml:"SourceMask,attr,omitempty" json:"SourceMask,omitempty"`
 }
 
 type ProfileCapabilities struct {
@@ -618,11 +618,11 @@ type ProfileCapabilities struct {
 
 	// Maximum number of profiles supported.
 
-	MaximumNumberOfProfiles int32 `xml:"http://www.onvif.org/ver20/media/wsdl MaximumNumberOfProfiles,attr,omitempty" json:"MaximumNumberOfProfiles,omitempty"`
+	MaximumNumberOfProfiles int32 `xml:"MaximumNumberOfProfiles,attr,omitempty" json:"MaximumNumberOfProfiles,omitempty"`
 
 	// The configurations supported by the device as defined by tr2:ConfigurationEnumeration. The enumeration value "All" shall not be included in this list.
 
-	ConfigurationsSupported *tt.StringAttrList `xml:"http://www.onvif.org/ver20/media/wsdl ConfigurationsSupported,attr,omitempty" json:"ConfigurationsSupported,omitempty"`
+	ConfigurationsSupported *tt.StringAttrList `xml:"ConfigurationsSupported,attr,omitempty" json:"ConfigurationsSupported,omitempty"`
 }
 
 type StreamingCapabilities struct {
@@ -630,27 +630,27 @@ type StreamingCapabilities struct {
 
 	// Indicates support for live media streaming via RTSP.
 
-	RTSPStreaming bool `xml:"http://www.onvif.org/ver20/media/wsdl RTSPStreaming,attr,omitempty" json:"RTSPStreaming,omitempty"`
+	RTSPStreaming bool `xml:"RTSPStreaming,attr,omitempty" json:"RTSPStreaming,omitempty"`
 
 	// Indicates support for RTP multicast.
 
-	RTPMulticast bool `xml:"http://www.onvif.org/ver20/media/wsdl RTPMulticast,attr,omitempty" json:"RTPMulticast,omitempty"`
+	RTPMulticast bool `xml:"RTPMulticast,attr,omitempty" json:"RTPMulticast,omitempty"`
 
 	// Indicates support for RTP/RTSP/TCP.
 
-	RTP_RTSP_TCP bool `xml:"http://www.onvif.org/ver20/media/wsdl RTP_RTSP_TCP,attr,omitempty" json:"RTP_RTSP_TCP,omitempty"`
+	RTP_RTSP_TCP bool `xml:"RTP_RTSP_TCP,attr,omitempty" json:"RTP_RTSP_TCP,omitempty"`
 
 	// Indicates support for non aggregate RTSP control.
 
-	NonAggregateControl bool `xml:"http://www.onvif.org/ver20/media/wsdl NonAggregateControl,attr,omitempty" json:"NonAggregateControl,omitempty"`
+	NonAggregateControl bool `xml:"NonAggregateControl,attr,omitempty" json:"NonAggregateControl,omitempty"`
 
 	// If streaming over WebSocket is supported, this shall return the RTSP WebSocket URI as described in Streaming Specification Section 5.1.1.5.
 
-	RTSPWebSocketUri string `xml:"http://www.onvif.org/ver20/media/wsdl RTSPWebSocketUri,attr,omitempty" json:"RTSPWebSocketUri,omitempty"`
+	RTSPWebSocketUri string `xml:"RTSPWebSocketUri,attr,omitempty" json:"RTSPWebSocketUri,omitempty"`
 
 	// Indicates support for non-RTSP controlled multicast streaming.
 
-	AutoStartMulticast bool `xml:"http://www.onvif.org/ver20/media/wsdl AutoStartMulticast,attr,omitempty" json:"AutoStartMulticast,omitempty"`
+	AutoStartMulticast bool `xml:"AutoStartMulticast,attr,omitempty" json:"AutoStartMulticast,omitempty"`
 }
 
 type ConfigurationRef struct {
@@ -724,7 +724,7 @@ type MediaProfile struct {
 
 	// A value of true signals that the profile cannot be deleted. Default is false.
 
-	Fixed bool `xml:"http://www.onvif.org/ver20/media/wsdl fixed,attr,omitempty" json:"fixed,omitempty"`
+	Fixed bool `xml:"fixed,attr,omitempty" json:"fixed,omitempty"`
 }
 
 type GetConfiguration struct {
@@ -793,7 +793,7 @@ type VideoSourceMode struct {
 
 	// Indication of whether this mode is active. If active this value is true. In case of non-indication, it means as false. The value of true shall be had by only one video source mode.
 
-	Enabled bool `xml:"http://www.onvif.org/ver20/media/wsdl Enabled,attr,omitempty" json:"Enabled,omitempty"`
+	Enabled bool `xml:"Enabled,attr,omitempty" json:"Enabled,omitempty"`
 }
 
 type Mask struct {
@@ -840,11 +840,11 @@ type MaskOptions struct {
 
 	// Information whether the polygon must have four points and a rectangular shape.
 
-	RectangleOnly bool `xml:"http://www.onvif.org/ver20/media/wsdl RectangleOnly,attr,omitempty" json:"RectangleOnly,omitempty"`
+	RectangleOnly bool `xml:"RectangleOnly,attr,omitempty" json:"RectangleOnly,omitempty"`
 
 	// Indicates the device capability of change in color of privacy mask for one video source configuration will automatically be applied to all the privacy masks associated with the same video source configuration.
 
-	SingleColorOnly bool `xml:"http://www.onvif.org/ver20/media/wsdl SingleColorOnly,attr,omitempty" json:"SingleColorOnly,omitempty"`
+	SingleColorOnly bool `xml:"SingleColorOnly,attr,omitempty" json:"SingleColorOnly,omitempty"`
 }
 
 type Media2 interface {

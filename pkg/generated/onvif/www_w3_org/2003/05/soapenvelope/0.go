@@ -66,7 +66,7 @@ type Reasontext struct {
 
 	Value string `xml:",chardata" json:",omitempty"`
 
-	EmptyString string `xml:"http://www.w3.org/2003/05/soap-envelope ,attr,omitempty" json:",omitempty"`
+	EmptyString string `xml:",attr,omitempty" json:",omitempty"`
 }
 
 type Faultcode struct {
@@ -94,13 +94,13 @@ type Detail struct {
 type NotUnderstoodType struct {
 	XMLName xml.Name `xml:"http://www.w3.org/2003/05/soap-envelope NotUnderstood" json:"-"`
 
-	Qname string `xml:"http://www.w3.org/2003/05/soap-envelope qname,attr,omitempty" json:"qname,omitempty"`
+	Qname string `xml:"qname,attr,omitempty" json:"qname,omitempty"`
 }
 
 type SupportedEnvType struct {
 	XMLName xml.Name `xml:"http://www.w3.org/2003/05/soap-envelope SupportedEnvelope" json:"-"`
 
-	Qname string `xml:"http://www.w3.org/2003/05/soap-envelope qname,attr,omitempty" json:"qname,omitempty"`
+	Qname string `xml:"qname,attr,omitempty" json:"qname,omitempty"`
 }
 
 type UpgradeType struct {

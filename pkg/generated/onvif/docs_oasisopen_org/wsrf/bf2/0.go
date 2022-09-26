@@ -29,13 +29,13 @@ type BaseFaultType struct {
 	ErrorCode struct {
 		string
 
-		Dialect string `xml:"http://docs.oasis-open.org/wsrf/bf-2 dialect,attr,omitempty" json:"dialect,omitempty"`
+		Dialect string `xml:"dialect,attr,omitempty" json:"dialect,omitempty"`
 	} `xml:"ErrorCode,omitempty" json:"ErrorCode,omitempty"`
 
 	Description []struct {
 		Value string `xml:",chardata" json:",omitempty"`
 
-		EmptyString string `xml:"http://docs.oasis-open.org/wsrf/bf-2 ,attr,omitempty" json:",omitempty"`
+		EmptyString string `xml:",attr,omitempty" json:",omitempty"`
 	} `xml:"Description,omitempty" json:"Description,omitempty"`
 
 	FaultCause struct {

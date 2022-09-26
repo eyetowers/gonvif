@@ -506,27 +506,27 @@ type Capabilities struct {
 
 	// Indicates whether or not EFlip is supported.
 
-	EFlip bool `xml:"http://www.onvif.org/ver20/ptz/wsdl EFlip,attr,omitempty" json:"EFlip,omitempty"`
+	EFlip bool `xml:"EFlip,attr,omitempty" json:"EFlip,omitempty"`
 
 	// Indicates whether or not reversing of PT control direction is supported.
 
-	Reverse bool `xml:"http://www.onvif.org/ver20/ptz/wsdl Reverse,attr,omitempty" json:"Reverse,omitempty"`
+	Reverse bool `xml:"Reverse,attr,omitempty" json:"Reverse,omitempty"`
 
 	// Indicates support for the GetCompatibleConfigurations command.
 
-	GetCompatibleConfigurations bool `xml:"http://www.onvif.org/ver20/ptz/wsdl GetCompatibleConfigurations,attr,omitempty" json:"GetCompatibleConfigurations,omitempty"`
+	GetCompatibleConfigurations bool `xml:"GetCompatibleConfigurations,attr,omitempty" json:"GetCompatibleConfigurations,omitempty"`
 
 	// Indicates that the PTZStatus includes MoveStatus information.
 
-	MoveStatus bool `xml:"http://www.onvif.org/ver20/ptz/wsdl MoveStatus,attr,omitempty" json:"MoveStatus,omitempty"`
+	MoveStatus bool `xml:"MoveStatus,attr,omitempty" json:"MoveStatus,omitempty"`
 
 	// Indicates that the PTZStatus includes Position information.
 
-	StatusPosition bool `xml:"http://www.onvif.org/ver20/ptz/wsdl StatusPosition,attr,omitempty" json:"StatusPosition,omitempty"`
+	StatusPosition bool `xml:"StatusPosition,attr,omitempty" json:"StatusPosition,omitempty"`
 
 	// Indication of the methods of MoveAndTrack that are supported, acceptable values are defined in tt:MoveAndTrackMethod.
 
-	MoveAndTrack *tt.StringList `xml:"http://www.onvif.org/ver20/ptz/wsdl MoveAndTrack,attr,omitempty" json:"MoveAndTrack,omitempty"`
+	MoveAndTrack *tt.StringList `xml:"MoveAndTrack,attr,omitempty" json:"MoveAndTrack,omitempty"`
 }
 
 type PTZ interface {

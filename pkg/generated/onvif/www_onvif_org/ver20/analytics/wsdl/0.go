@@ -216,31 +216,31 @@ type Capabilities struct {
 
 	// Indication that the device supports the rules interface and the rules syntax.
 
-	RuleSupport bool `xml:"http://www.onvif.org/ver20/analytics/wsdl RuleSupport,attr,omitempty" json:"RuleSupport,omitempty"`
+	RuleSupport bool `xml:"RuleSupport,attr,omitempty" json:"RuleSupport,omitempty"`
 
 	// Indication that the device supports the scene analytics module interface.
 
-	AnalyticsModuleSupport bool `xml:"http://www.onvif.org/ver20/analytics/wsdl AnalyticsModuleSupport,attr,omitempty" json:"AnalyticsModuleSupport,omitempty"`
+	AnalyticsModuleSupport bool `xml:"AnalyticsModuleSupport,attr,omitempty" json:"AnalyticsModuleSupport,omitempty"`
 
 	// Indication that the device produces the cell based scene description
 
-	CellBasedSceneDescriptionSupported bool `xml:"http://www.onvif.org/ver20/analytics/wsdl CellBasedSceneDescriptionSupported,attr,omitempty" json:"CellBasedSceneDescriptionSupported,omitempty"`
+	CellBasedSceneDescriptionSupported bool `xml:"CellBasedSceneDescriptionSupported,attr,omitempty" json:"CellBasedSceneDescriptionSupported,omitempty"`
 
 	// Indication that the device supports the GetRuleOptions operation on the rules interface
 
-	RuleOptionsSupported bool `xml:"http://www.onvif.org/ver20/analytics/wsdl RuleOptionsSupported,attr,omitempty" json:"RuleOptionsSupported,omitempty"`
+	RuleOptionsSupported bool `xml:"RuleOptionsSupported,attr,omitempty" json:"RuleOptionsSupported,omitempty"`
 
 	// Indication that the device supports the GetAnalyticsModuleOptions operation on the analytics interface
 
-	AnalyticsModuleOptionsSupported bool `xml:"http://www.onvif.org/ver20/analytics/wsdl AnalyticsModuleOptionsSupported,attr,omitempty" json:"AnalyticsModuleOptionsSupported,omitempty"`
+	AnalyticsModuleOptionsSupported bool `xml:"AnalyticsModuleOptionsSupported,attr,omitempty" json:"AnalyticsModuleOptionsSupported,omitempty"`
 
 	// Indication that the device supports the GetSupportedMetadata operation.
 
-	SupportedMetadata bool `xml:"http://www.onvif.org/ver20/analytics/wsdl SupportedMetadata,attr,omitempty" json:"SupportedMetadata,omitempty"`
+	SupportedMetadata bool `xml:"SupportedMetadata,attr,omitempty" json:"SupportedMetadata,omitempty"`
 
 	// Indication what kinds of method that the device support for sending image, acceptable values are defined in tt:ImageSendingType.
 
-	ImageSendingType *tt.StringList `xml:"http://www.onvif.org/ver20/analytics/wsdl ImageSendingType,attr,omitempty" json:"ImageSendingType,omitempty"`
+	ImageSendingType *tt.StringList `xml:"ImageSendingType,attr,omitempty" json:"ImageSendingType,omitempty"`
 }
 
 type ConfigOptions struct {
@@ -250,14 +250,14 @@ type ConfigOptions struct {
 	// The RuleType the ConfigOptions applies to if the Name attribute is ambiguous.
 	//
 
-	RuleType string `xml:"http://www.onvif.org/ver20/analytics/wsdl RuleType,attr,omitempty" json:"RuleType,omitempty"`
+	RuleType string `xml:"RuleType,attr,omitempty" json:"RuleType,omitempty"`
 
 	//
 	// The Name of the SimpleItemDescription/ElementItemDescription
 	// the ConfigOptions applies to.
 	//
 
-	Name string `xml:"http://www.onvif.org/ver20/analytics/wsdl Name,attr,omitempty" json:"Name,omitempty"`
+	Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
 	//
 	// Type of the Rule Options represented by a unique QName.
@@ -265,25 +265,25 @@ type ConfigOptions struct {
 	// This attribute is deprecated since its value must be identical to the embedded element.
 	//
 
-	Type string `xml:"http://www.onvif.org/ver20/analytics/wsdl Type,attr,omitempty" json:"Type,omitempty"`
+	Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 
 	//
 	// Optional name of the analytics module this constraint applies to. This option is only necessary in cases where different constraints for elements with the same Name exist.
 	//
 
-	AnalyticsModule string `xml:"http://www.onvif.org/ver20/analytics/wsdl AnalyticsModule,attr,omitempty" json:"AnalyticsModule,omitempty"`
+	AnalyticsModule string `xml:"AnalyticsModule,attr,omitempty" json:"AnalyticsModule,omitempty"`
 
 	//
 	// Minimal number of occurrences. Defaults to one.
 	//
 
-	MinOccurs int32 `xml:"http://www.onvif.org/ver20/analytics/wsdl minOccurs,attr,omitempty" json:"minOccurs,omitempty"`
+	MinOccurs int32 `xml:"minOccurs,attr,omitempty" json:"minOccurs,omitempty"`
 
 	//
 	// Maximum number of occurrences. Defaults to one.
 	//
 
-	MaxOccurs int32 `xml:"http://www.onvif.org/ver20/analytics/wsdl maxOccurs,attr,omitempty" json:"maxOccurs,omitempty"`
+	MaxOccurs int32 `xml:"maxOccurs,attr,omitempty" json:"maxOccurs,omitempty"`
 }
 
 type MetadataInfo struct {
@@ -296,7 +296,7 @@ type MetadataInfo struct {
 
 	// Reference to an AnalyticsModule Type.
 
-	Type string `xml:"http://www.onvif.org/ver20/analytics/wsdl Type,attr,omitempty" json:"Type,omitempty"`
+	Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 }
 
 type RuleEnginePort interface {

@@ -253,15 +253,15 @@ type Capabilities struct {
 	// Indicates whether or not Image Stabilization feature is supported.
 	// The use of this capability is deprecated, a client should use GetOption to find out if image stabilization is supported.
 
-	ImageStabilization bool `xml:"http://www.onvif.org/ver20/imaging/wsdl ImageStabilization,attr,omitempty" json:"ImageStabilization,omitempty"`
+	ImageStabilization bool `xml:"ImageStabilization,attr,omitempty" json:"ImageStabilization,omitempty"`
 
 	// Indicates whether or not Imaging Presets feature is supported.
 
-	Presets bool `xml:"http://www.onvif.org/ver20/imaging/wsdl Presets,attr,omitempty" json:"Presets,omitempty"`
+	Presets bool `xml:"Presets,attr,omitempty" json:"Presets,omitempty"`
 
 	// Indicates whether or not imaging preset settings can be updated.
 
-	AdaptablePreset bool `xml:"http://www.onvif.org/ver20/imaging/wsdl AdaptablePreset,attr,omitempty" json:"AdaptablePreset,omitempty"`
+	AdaptablePreset bool `xml:"AdaptablePreset,attr,omitempty" json:"AdaptablePreset,omitempty"`
 }
 
 type ImagingPreset struct {
@@ -277,7 +277,7 @@ type ImagingPreset struct {
 	// Indicates Imaging Preset Type. Use timg:ImagingPresetType.
 	// Used for multi-language support and display.
 
-	Type string `xml:"http://www.onvif.org/ver20/imaging/wsdl type,attr,omitempty" json:"type,omitempty"`
+	Type string `xml:"type,attr,omitempty" json:"type,omitempty"`
 }
 
 type ImagingPort interface {

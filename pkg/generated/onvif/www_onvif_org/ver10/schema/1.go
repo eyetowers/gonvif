@@ -869,9 +869,9 @@ type Message struct {
 
 	Extension *MessageExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
 
-	UtcTime soap.XSDDateTime `xml:"http://www.onvif.org/ver10/schema UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
+	UtcTime soap.XSDDateTime `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
 
-	PropertyOperation *PropertyOperation `xml:"http://www.onvif.org/ver10/schema PropertyOperation,attr,omitempty" json:"PropertyOperation,omitempty"`
+	PropertyOperation *PropertyOperation `xml:"PropertyOperation,attr,omitempty" json:"PropertyOperation,omitempty"`
 }
 
 type DeviceEntity struct {
@@ -884,13 +884,13 @@ type DeviceEntity struct {
 type IntRectangle struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Bounds" json:"-"`
 
-	X int32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X int32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
-	Y int32 `xml:"http://www.onvif.org/ver10/schema y,attr,omitempty" json:"y,omitempty"`
+	Y int32 `xml:"y,attr,omitempty" json:"y,omitempty"`
 
-	Width int32 `xml:"http://www.onvif.org/ver10/schema width,attr,omitempty" json:"width,omitempty"`
+	Width int32 `xml:"width,attr,omitempty" json:"width,omitempty"`
 
-	Height int32 `xml:"http://www.onvif.org/ver10/schema height,attr,omitempty" json:"height,omitempty"`
+	Height int32 `xml:"height,attr,omitempty" json:"height,omitempty"`
 }
 
 type IntRectangleRange struct {
@@ -1006,7 +1006,7 @@ type Profile struct {
 
 	// A value of true signals that the profile cannot be deleted. Default is false.
 
-	Fixed bool `xml:"http://www.onvif.org/ver10/schema fixed,attr,omitempty" json:"fixed,omitempty"`
+	Fixed bool `xml:"fixed,attr,omitempty" json:"fixed,omitempty"`
 }
 
 type ProfileExtension struct {
@@ -1055,7 +1055,7 @@ type VideoSourceConfiguration struct {
 
 	// Readonly parameter signalling Source configuration's view mode, for devices supporting different view modes as defined in tt:viewModes.
 
-	ViewMode string `xml:"http://www.onvif.org/ver10/schema ViewMode,attr,omitempty" json:"ViewMode,omitempty"`
+	ViewMode string `xml:"ViewMode,attr,omitempty" json:"ViewMode,omitempty"`
 }
 
 type VideoSourceConfigurationExtension struct {
@@ -1121,11 +1121,11 @@ type LensOffset struct {
 
 	// Optional horizontal offset of the lens center in normalized coordinates.
 
-	X float32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
 	// Optional vertical offset of the lens center in normalized coordinates.
 
-	Y float32 `xml:"http://www.onvif.org/ver10/schema y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
 }
 
 type LensDescription struct {
@@ -1145,7 +1145,7 @@ type LensDescription struct {
 
 	// Optional focal length of the optical system.
 
-	FocalLength float32 `xml:"http://www.onvif.org/ver10/schema FocalLength,attr,omitempty" json:"FocalLength,omitempty"`
+	FocalLength float32 `xml:"FocalLength,attr,omitempty" json:"FocalLength,omitempty"`
 }
 
 type VideoSourceConfigurationOptions struct {
@@ -1164,7 +1164,7 @@ type VideoSourceConfigurationOptions struct {
 
 	// Maximum number of profiles.
 
-	MaximumNumberOfProfiles int32 `xml:"http://www.onvif.org/ver10/schema MaximumNumberOfProfiles,attr,omitempty" json:"MaximumNumberOfProfiles,omitempty"`
+	MaximumNumberOfProfiles int32 `xml:"MaximumNumberOfProfiles,attr,omitempty" json:"MaximumNumberOfProfiles,omitempty"`
 }
 
 type VideoSourceConfigurationOptionsExtension struct {
@@ -1201,7 +1201,7 @@ type RotateOptions struct {
 	// After setting the rotation, if a device starts to reboot this value is true.
 	// If a device can handle rotation setting without rebooting this value is false.
 
-	Reboot bool `xml:"http://www.onvif.org/ver10/schema Reboot,attr,omitempty" json:"Reboot,omitempty"`
+	Reboot bool `xml:"Reboot,attr,omitempty" json:"Reboot,omitempty"`
 }
 
 type RotateOptionsExtension struct {
@@ -1258,7 +1258,7 @@ type VideoEncoderConfiguration struct {
 	// configuration values such as bitrate.  Default is false.
 	//
 
-	GuaranteedFrameRate bool `xml:"http://www.onvif.org/ver10/schema GuaranteedFrameRate,attr,omitempty" json:"GuaranteedFrameRate,omitempty"`
+	GuaranteedFrameRate bool `xml:"GuaranteedFrameRate,attr,omitempty" json:"GuaranteedFrameRate,omitempty"`
 }
 
 type VideoResolution struct {
@@ -1323,7 +1323,7 @@ type VideoEncoderConfigurationOptions struct {
 	// Indicates the support for the GuaranteedFrameRate attribute on the VideoEncoderConfiguration element.
 	//
 
-	GuaranteedFrameRateSupported bool `xml:"http://www.onvif.org/ver10/schema GuaranteedFrameRateSupported,attr,omitempty" json:"GuaranteedFrameRateSupported,omitempty"`
+	GuaranteedFrameRateSupported bool `xml:"GuaranteedFrameRateSupported,attr,omitempty" json:"GuaranteedFrameRateSupported,omitempty"`
 }
 
 type VideoEncoderOptionsExtension struct {
@@ -1447,11 +1447,11 @@ type VideoEncoder2Configuration struct {
 
 	// Group of Video frames length. Determines typically the interval in which the I-Frames will be coded. An entry of 1 indicates I-Frames are continuously generated. An entry of 2 indicates that every 2nd image is an I-Frame, and 3 only every 3rd frame, etc. The frames in between are coded as P or B Frames.
 
-	GovLength int32 `xml:"http://www.onvif.org/ver10/schema GovLength,attr,omitempty" json:"GovLength,omitempty"`
+	GovLength int32 `xml:"GovLength,attr,omitempty" json:"GovLength,omitempty"`
 
 	// The encoder profile as defined in tt:VideoEncodingProfiles.
 
-	Profile string `xml:"http://www.onvif.org/ver10/schema Profile,attr,omitempty" json:"Profile,omitempty"`
+	Profile string `xml:"Profile,attr,omitempty" json:"Profile,omitempty"`
 
 	//
 	// A value of true indicates that frame rate is a fixed value rather than an upper limit,
@@ -1459,7 +1459,7 @@ type VideoEncoder2Configuration struct {
 	// configuration values such as bitrate.  Default is false.
 	//
 
-	GuaranteedFrameRate bool `xml:"http://www.onvif.org/ver10/schema GuaranteedFrameRate,attr,omitempty" json:"GuaranteedFrameRate,omitempty"`
+	GuaranteedFrameRate bool `xml:"GuaranteedFrameRate,attr,omitempty" json:"GuaranteedFrameRate,omitempty"`
 }
 
 type VideoResolution2 struct {
@@ -1486,7 +1486,7 @@ type VideoRateControl2 struct {
 
 	// Enforce constant bitrate.
 
-	ConstantBitRate bool `xml:"http://www.onvif.org/ver10/schema ConstantBitRate,attr,omitempty" json:"ConstantBitRate,omitempty"`
+	ConstantBitRate bool `xml:"ConstantBitRate,attr,omitempty" json:"ConstantBitRate,omitempty"`
 }
 
 type VideoEncoder2ConfigurationOptions struct {
@@ -1507,25 +1507,25 @@ type VideoEncoder2ConfigurationOptions struct {
 
 	// Exactly two values, which define the Lower and Upper bounds for the supported group of Video frames length. These values typically correspond to the I-Frame distance.
 
-	GovLengthRange *IntList `xml:"http://www.onvif.org/ver10/schema GovLengthRange,attr,omitempty" json:"GovLengthRange,omitempty"`
+	GovLengthRange *IntList `xml:"GovLengthRange,attr,omitempty" json:"GovLengthRange,omitempty"`
 
 	// List of supported target frame rates in fps (frames per second). The list shall be sorted with highest values first.
 
-	FrameRatesSupported *FloatList `xml:"http://www.onvif.org/ver10/schema FrameRatesSupported,attr,omitempty" json:"FrameRatesSupported,omitempty"`
+	FrameRatesSupported *FloatList `xml:"FrameRatesSupported,attr,omitempty" json:"FrameRatesSupported,omitempty"`
 
 	// List of supported encoder profiles as defined in tt::VideoEncodingProfiles.
 
-	ProfilesSupported *StringAttrList `xml:"http://www.onvif.org/ver10/schema ProfilesSupported,attr,omitempty" json:"ProfilesSupported,omitempty"`
+	ProfilesSupported *StringAttrList `xml:"ProfilesSupported,attr,omitempty" json:"ProfilesSupported,omitempty"`
 
 	// Signal whether enforcing constant bitrate is supported.
 
-	ConstantBitRateSupported bool `xml:"http://www.onvif.org/ver10/schema ConstantBitRateSupported,attr,omitempty" json:"ConstantBitRateSupported,omitempty"`
+	ConstantBitRateSupported bool `xml:"ConstantBitRateSupported,attr,omitempty" json:"ConstantBitRateSupported,omitempty"`
 
 	//
 	// Indicates the support for the GuaranteedFrameRate attribute on the VideoEncoder2Configuration element.
 	//
 
-	GuaranteedFrameRateSupported bool `xml:"http://www.onvif.org/ver10/schema GuaranteedFrameRateSupported,attr,omitempty" json:"GuaranteedFrameRateSupported,omitempty"`
+	GuaranteedFrameRateSupported bool `xml:"GuaranteedFrameRateSupported,attr,omitempty" json:"GuaranteedFrameRateSupported,omitempty"`
 }
 
 type AudioSourceConfiguration struct {
@@ -1656,15 +1656,15 @@ type MetadataConfiguration struct {
 
 	// Optional parameter to configure compression type of Metadata payload. Use values from enumeration MetadataCompressionType.
 
-	CompressionType string `xml:"http://www.onvif.org/ver10/schema CompressionType,attr,omitempty" json:"CompressionType,omitempty"`
+	CompressionType string `xml:"CompressionType,attr,omitempty" json:"CompressionType,omitempty"`
 
 	// Optional parameter to configure if the metadata stream shall contain the Geo Location coordinates of each target.
 
-	GeoLocation bool `xml:"http://www.onvif.org/ver10/schema GeoLocation,attr,omitempty" json:"GeoLocation,omitempty"`
+	GeoLocation bool `xml:"GeoLocation,attr,omitempty" json:"GeoLocation,omitempty"`
 
 	// Optional parameter to configure if the generated metadata stream should contain shape information as polygon.
 
-	ShapePolygon bool `xml:"http://www.onvif.org/ver10/schema ShapePolygon,attr,omitempty" json:"ShapePolygon,omitempty"`
+	ShapePolygon bool `xml:"ShapePolygon,attr,omitempty" json:"ShapePolygon,omitempty"`
 }
 
 type MetadataConfigurationExtension struct {
@@ -1703,11 +1703,11 @@ type MetadataConfigurationOptions struct {
 
 	// True if the device is able to stream the Geo Located positions of each target.
 
-	GeoLocation bool `xml:"http://www.onvif.org/ver10/schema GeoLocation,attr,omitempty" json:"GeoLocation,omitempty"`
+	GeoLocation bool `xml:"GeoLocation,attr,omitempty" json:"GeoLocation,omitempty"`
 
 	// A device signalling support for content filtering shall support expressions with the provided expression size.
 
-	MaxContentFilterSize int32 `xml:"http://www.onvif.org/ver10/schema MaxContentFilterSize,attr,omitempty" json:"MaxContentFilterSize,omitempty"`
+	MaxContentFilterSize int32 `xml:"MaxContentFilterSize,attr,omitempty" json:"MaxContentFilterSize,omitempty"`
 }
 
 type MetadataConfigurationOptionsExtension struct {
@@ -3052,13 +3052,13 @@ type BinaryData struct {
 	// base64 encoded binary data.
 	Data []byte `xml:"Data,omitempty" json:"Data,omitempty"`
 
-	ContentType string `xml:"http://www.onvif.org/ver10/schema contentType,attr,omitempty" json:"contentType,omitempty"`
+	ContentType string `xml:"contentType,attr,omitempty" json:"contentType,omitempty"`
 }
 
 type AttachmentData struct {
 	Include *xop.Include `xml:"Include,omitempty" json:"Include,omitempty"`
 
-	ContentType string `xml:"http://www.onvif.org/ver10/schema contentType,attr,omitempty" json:"contentType,omitempty"`
+	ContentType string `xml:"contentType,attr,omitempty" json:"contentType,omitempty"`
 }
 
 type BackupFile struct {
@@ -3247,7 +3247,7 @@ type CertificateInformation struct {
 type CertificateUsage struct {
 	Value string `xml:",chardata" json:",omitempty"`
 
-	Critical bool `xml:"http://www.onvif.org/ver10/schema Critical,attr,omitempty" json:"Critical,omitempty"`
+	Critical bool `xml:"Critical,attr,omitempty" json:"Critical,omitempty"`
 }
 
 type CertificateInformationExtension struct {
@@ -3340,7 +3340,7 @@ type DigitalInput struct {
 	// Indicate the Digital IdleState status.
 	//
 
-	IdleState *DigitalIdleState `xml:"http://www.onvif.org/ver10/schema IdleState,attr,omitempty" json:"IdleState,omitempty"`
+	IdleState *DigitalIdleState `xml:"IdleState,attr,omitempty" json:"IdleState,omitempty"`
 }
 
 type PTZNode struct {
@@ -3377,13 +3377,13 @@ type PTZNode struct {
 	// Indication whether the HomePosition of a Node is fixed or it can be changed via the SetHomePosition command.
 	//
 
-	FixedHomePosition bool `xml:"http://www.onvif.org/ver10/schema FixedHomePosition,attr,omitempty" json:"FixedHomePosition,omitempty"`
+	FixedHomePosition bool `xml:"FixedHomePosition,attr,omitempty" json:"FixedHomePosition,omitempty"`
 
 	//
 	// Indication whether the Node supports the geo-referenced move command.
 	//
 
-	GeoMove bool `xml:"http://www.onvif.org/ver10/schema GeoMove,attr,omitempty" json:"GeoMove,omitempty"`
+	GeoMove bool `xml:"GeoMove,attr,omitempty" json:"GeoMove,omitempty"`
 }
 
 type PTZNodeExtension struct {
@@ -3485,15 +3485,15 @@ type PTZConfiguration struct {
 
 	// The optional acceleration ramp used by the device when moving.
 
-	MoveRamp int32 `xml:"http://www.onvif.org/ver10/schema MoveRamp,attr,omitempty" json:"MoveRamp,omitempty"`
+	MoveRamp int32 `xml:"MoveRamp,attr,omitempty" json:"MoveRamp,omitempty"`
 
 	// The optional acceleration ramp used by the device when recalling presets.
 
-	PresetRamp int32 `xml:"http://www.onvif.org/ver10/schema PresetRamp,attr,omitempty" json:"PresetRamp,omitempty"`
+	PresetRamp int32 `xml:"PresetRamp,attr,omitempty" json:"PresetRamp,omitempty"`
 
 	// The optional acceleration ramp used by the device when executing PresetTours.
 
-	PresetTourRamp int32 `xml:"http://www.onvif.org/ver10/schema PresetTourRamp,attr,omitempty" json:"PresetTourRamp,omitempty"`
+	PresetTourRamp int32 `xml:"PresetTourRamp,attr,omitempty" json:"PresetTourRamp,omitempty"`
 }
 
 type PTZConfigurationExtension struct {
@@ -3571,7 +3571,7 @@ type PTZConfigurationOptions struct {
 	// highest acceleration corresponds to the maximum index.
 	//
 
-	PTZRamps *IntList `xml:"http://www.onvif.org/ver10/schema PTZRamps,attr,omitempty" json:"PTZRamps,omitempty"`
+	PTZRamps *IntList `xml:"PTZRamps,attr,omitempty" json:"PTZRamps,omitempty"`
 }
 
 type PTZConfigurationOptions2 struct {
@@ -3874,7 +3874,7 @@ type PTZPresetTourStartingCondition struct {
 
 	// Execute presets in random order. If set to true and Direction is also present, Direction will be ignored and presets of the Tour will be recalled randomly.
 
-	RandomPresetOrder bool `xml:"http://www.onvif.org/ver10/schema RandomPresetOrder,attr,omitempty" json:"RandomPresetOrder,omitempty"`
+	RandomPresetOrder bool `xml:"RandomPresetOrder,attr,omitempty" json:"RandomPresetOrder,omitempty"`
 }
 
 type PTZPresetTourStartingConditionExtension struct {
@@ -4907,7 +4907,7 @@ type FocusConfiguration20 struct {
 
 	// Zero or more modes as defined in enumeration tt:AFModes.
 
-	AFMode *StringAttrList `xml:"http://www.onvif.org/ver10/schema AFMode,attr,omitempty" json:"AFMode,omitempty"`
+	AFMode *StringAttrList `xml:"AFMode,attr,omitempty" json:"AFMode,omitempty"`
 }
 
 type FocusConfiguration20Extension struct {
@@ -5015,18 +5015,18 @@ type ItemList struct {
 
 		// Item name.
 
-		Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
 		// Item value. The type is defined in the corresponding description.
 
-		Value string `xml:"http://www.onvif.org/ver10/schema Value,attr,omitempty" json:"Value,omitempty"`
+		Value string `xml:"Value,attr,omitempty" json:"Value,omitempty"`
 	} `xml:"SimpleItem,omitempty" json:"SimpleItem,omitempty"`
 
 	ElementItem []struct {
 
 		// Item name.
 
-		Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 	} `xml:"ElementItem,omitempty" json:"ElementItem,omitempty"`
 
 	Extension *ItemListExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
@@ -5057,7 +5057,7 @@ type MessageDescription struct {
 
 	// Must be set to true when the described Message relates to a property. An alternative term of "property" is a "state" in contrast to a pure event, which contains relevant information for only a single point in time.Default is false.
 
-	IsProperty bool `xml:"http://www.onvif.org/ver10/schema IsProperty,attr,omitempty" json:"IsProperty,omitempty"`
+	IsProperty bool `xml:"IsProperty,attr,omitempty" json:"IsProperty,omitempty"`
 }
 
 type MessageDescriptionExtension struct {
@@ -5071,20 +5071,20 @@ type ItemListDescription struct {
 
 		// Item name. Must be unique within a list.
 
-		Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
-		Type string `xml:"http://www.onvif.org/ver10/schema Type,attr,omitempty" json:"Type,omitempty"`
+		Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 	} `xml:"SimpleItemDescription,omitempty" json:"SimpleItemDescription,omitempty"`
 
 	ElementItemDescription []struct {
 
 		// Item name. Must be unique within a list.
 
-		Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
 		// The type of the item. The Type must reference a defined type.
 
-		Type string `xml:"http://www.onvif.org/ver10/schema Type,attr,omitempty" json:"Type,omitempty"`
+		Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 	} `xml:"ElementItemDescription,omitempty" json:"ElementItemDescription,omitempty"`
 
 	Extension *ItemListDescriptionExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
@@ -5131,11 +5131,11 @@ type Config struct {
 
 	// Name of the configuration.
 
-	Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+	Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
 	// The Type attribute specifies the type of rule and shall be equal to value of one of Name attributes of ConfigDescription elements returned by GetSupportedRules and GetSupportedAnalyticsModules command.
 
-	Type string `xml:"http://www.onvif.org/ver10/schema Type,attr,omitempty" json:"Type,omitempty"`
+	Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 }
 
 type ConfigDescription struct {
@@ -5160,15 +5160,15 @@ type ConfigDescription struct {
 
 	// The Name attribute (e.g. "tt::LineDetector") uniquely identifies the type of rule, not a type definition in a schema.
 
-	Name string `xml:"http://www.onvif.org/ver10/schema Name,attr,omitempty" json:"Name,omitempty"`
+	Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
 
 	// The fixed attribute signals that it is not allowed to add or remove this type of configuration.
 
-	Fixed bool `xml:"http://www.onvif.org/ver10/schema fixed,attr,omitempty" json:"fixed,omitempty"`
+	Fixed bool `xml:"fixed,attr,omitempty" json:"fixed,omitempty"`
 
 	// The maxInstances attribute signals the maximum number of instances per configuration.
 
-	MaxInstances int32 `xml:"http://www.onvif.org/ver10/schema maxInstances,attr,omitempty" json:"maxInstances,omitempty"`
+	MaxInstances int32 `xml:"maxInstances,attr,omitempty" json:"maxInstances,omitempty"`
 }
 
 type ConfigDescriptionExtension struct {
@@ -5189,7 +5189,7 @@ type SupportedRules struct {
 
 	// Maximum number of concurrent instances.
 
-	Limit int32 `xml:"http://www.onvif.org/ver10/schema Limit,attr,omitempty" json:"Limit,omitempty"`
+	Limit int32 `xml:"Limit,attr,omitempty" json:"Limit,omitempty"`
 }
 
 type SupportedRulesExtension struct {
@@ -5212,7 +5212,7 @@ type SupportedAnalyticsModules struct {
 
 	// Maximum number of concurrent instances.
 
-	Limit int32 `xml:"http://www.onvif.org/ver10/schema Limit,attr,omitempty" json:"Limit,omitempty"`
+	Limit int32 `xml:"Limit,attr,omitempty" json:"Limit,omitempty"`
 }
 
 type SupportedAnalyticsModulesExtension struct {
@@ -5250,7 +5250,7 @@ type MotionExpression struct {
 
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Type string `xml:"http://www.onvif.org/ver10/schema Type,attr,omitempty" json:"Type,omitempty"`
+	Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 }
 
 type MotionExpressionConfiguration struct {
@@ -5270,11 +5270,11 @@ type CellLayout struct {
 
 	// Number of columns of the cell grid (x dimension)
 
-	Columns int32 `xml:"http://www.onvif.org/ver10/schema Columns,attr,omitempty" json:"Columns,omitempty"`
+	Columns int32 `xml:"Columns,attr,omitempty" json:"Columns,omitempty"`
 
 	// Number of rows of the cell grid (y dimension)
 
-	Rows int32 `xml:"http://www.onvif.org/ver10/schema Rows,attr,omitempty" json:"Rows,omitempty"`
+	Rows int32 `xml:"Rows,attr,omitempty" json:"Rows,omitempty"`
 }
 
 type PaneConfiguration struct {
@@ -5415,7 +5415,7 @@ type SourceReference struct {
 
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Type string `xml:"http://www.onvif.org/ver10/schema Type,attr,omitempty" json:"Type,omitempty"`
+	Type string `xml:"Type,attr,omitempty" json:"Type,omitempty"`
 }
 
 type DateTimeRange struct {
@@ -5732,7 +5732,7 @@ type MetadataAttributes struct {
 
 	// List of all PTZ spaces active for recording. Note that events are only recorded on position changes and the actual point of recording may not necessarily contain an event of the specified type.
 
-	PtzSpaces *StringAttrList `xml:"http://www.onvif.org/ver10/schema PtzSpaces,attr,omitempty" json:"PtzSpaces,omitempty"`
+	PtzSpaces *StringAttrList `xml:"PtzSpaces,attr,omitempty" json:"PtzSpaces,omitempty"`
 }
 
 type RecordingConfiguration struct {
@@ -5828,7 +5828,7 @@ type RecordingJobConfiguration struct {
 	// If this optional field is provided the job shall only record if the schedule exists and is active.
 	//
 
-	ScheduleToken string `xml:"http://www.onvif.org/ver10/schema ScheduleToken,attr,omitempty" json:"ScheduleToken,omitempty"`
+	ScheduleToken string `xml:"ScheduleToken,attr,omitempty" json:"ScheduleToken,omitempty"`
 }
 
 type RecordingJobConfigurationExtension struct {
@@ -6170,7 +6170,7 @@ type OSDPosConfigurationExtension struct {
 type OSDColor struct {
 	Color *Color `xml:"Color,omitempty" json:"Color,omitempty"`
 
-	Transparent int32 `xml:"http://www.onvif.org/ver10/schema Transparent,attr,omitempty" json:"Transparent,omitempty"`
+	Transparent int32 `xml:"Transparent,attr,omitempty" json:"Transparent,omitempty"`
 }
 
 type OSDTextConfiguration struct {
@@ -6207,7 +6207,7 @@ type OSDTextConfiguration struct {
 
 	// This flag is applicable for Type Plain and defaults to true. When set to false the PlainText content will not be persistent across device reboots.
 
-	IsPersistentText bool `xml:"http://www.onvif.org/ver10/schema IsPersistentText,attr,omitempty" json:"IsPersistentText,omitempty"`
+	IsPersistentText bool `xml:"IsPersistentText,attr,omitempty" json:"IsPersistentText,omitempty"`
 }
 
 type OSDTextConfigurationExtension struct {
@@ -6311,19 +6311,19 @@ type OSDImgOptions struct {
 
 	// List of supported image MIME types, such as "image/png".
 
-	FormatsSupported *StringAttrList `xml:"http://www.onvif.org/ver10/schema FormatsSupported,attr,omitempty" json:"FormatsSupported,omitempty"`
+	FormatsSupported *StringAttrList `xml:"FormatsSupported,attr,omitempty" json:"FormatsSupported,omitempty"`
 
 	// The maximum size (in bytes) of the image that can be uploaded.
 
-	MaxSize int32 `xml:"http://www.onvif.org/ver10/schema MaxSize,attr,omitempty" json:"MaxSize,omitempty"`
+	MaxSize int32 `xml:"MaxSize,attr,omitempty" json:"MaxSize,omitempty"`
 
 	// The maximum width (in pixels) of the image that can be uploaded.
 
-	MaxWidth int32 `xml:"http://www.onvif.org/ver10/schema MaxWidth,attr,omitempty" json:"MaxWidth,omitempty"`
+	MaxWidth int32 `xml:"MaxWidth,attr,omitempty" json:"MaxWidth,omitempty"`
 
 	// The maximum height (in pixels) of the image that can be uploaded.
 
-	MaxHeight int32 `xml:"http://www.onvif.org/ver10/schema MaxHeight,attr,omitempty" json:"MaxHeight,omitempty"`
+	MaxHeight int32 `xml:"MaxHeight,attr,omitempty" json:"MaxHeight,omitempty"`
 }
 
 type OSDImgOptionsExtension struct {
@@ -6360,17 +6360,17 @@ type OSDConfigurationExtension struct {
 }
 
 type MaximumNumberOfOSDs struct {
-	Total int32 `xml:"http://www.onvif.org/ver10/schema Total,attr,omitempty" json:"Total,omitempty"`
+	Total int32 `xml:"Total,attr,omitempty" json:"Total,omitempty"`
 
-	Image int32 `xml:"http://www.onvif.org/ver10/schema Image,attr,omitempty" json:"Image,omitempty"`
+	Image int32 `xml:"Image,attr,omitempty" json:"Image,omitempty"`
 
-	PlainText int32 `xml:"http://www.onvif.org/ver10/schema PlainText,attr,omitempty" json:"PlainText,omitempty"`
+	PlainText int32 `xml:"PlainText,attr,omitempty" json:"PlainText,omitempty"`
 
-	Date int32 `xml:"http://www.onvif.org/ver10/schema Date,attr,omitempty" json:"Date,omitempty"`
+	Date int32 `xml:"Date,attr,omitempty" json:"Date,omitempty"`
 
-	Time int32 `xml:"http://www.onvif.org/ver10/schema Time,attr,omitempty" json:"Time,omitempty"`
+	Time int32 `xml:"Time,attr,omitempty" json:"Time,omitempty"`
 
-	DateAndTime int32 `xml:"http://www.onvif.org/ver10/schema DateAndTime,attr,omitempty" json:"DateAndTime,omitempty"`
+	DateAndTime int32 `xml:"DateAndTime,attr,omitempty" json:"DateAndTime,omitempty"`
 }
 
 type OSDConfigurationOptions struct {

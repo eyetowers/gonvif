@@ -293,13 +293,13 @@ type ResumeFailedFault ResumeFailedFaultType
 type QueryExpressionType struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Dialect string `xml:"http://docs.oasis-open.org/wsn/b-2 Dialect,attr,omitempty" json:"Dialect,omitempty"`
+	Dialect string `xml:"Dialect,attr,omitempty" json:"Dialect,omitempty"`
 }
 
 type TopicExpressionType struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Dialect string `xml:"http://docs.oasis-open.org/wsn/b-2 Dialect,attr,omitempty" json:"Dialect,omitempty"`
+	Dialect string `xml:"Dialect,attr,omitempty" json:"Dialect,omitempty"`
 }
 
 type FilterType struct {

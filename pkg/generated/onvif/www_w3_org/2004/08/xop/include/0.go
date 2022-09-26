@@ -18,5 +18,5 @@ var _ soap.SOAPEnvelope
 type Include struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	Href string `xml:"http://www.w3.org/2004/08/xop/include href,attr,omitempty" json:"href,omitempty"`
+	Href string `xml:"href,attr,omitempty" json:"href,omitempty"`
 }

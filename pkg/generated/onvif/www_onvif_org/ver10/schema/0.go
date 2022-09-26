@@ -51,27 +51,27 @@ type IntRange struct {
 type Vector2D struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema PanTilt" json:"-"`
 
-	X float32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
-	Y float32 `xml:"http://www.onvif.org/ver10/schema y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
 
 	//
 	// Pan/tilt coordinate space selector. The following options are defined:
 	//
 
-	Space string `xml:"http://www.onvif.org/ver10/schema space,attr,omitempty" json:"space,omitempty"`
+	Space string `xml:"space,attr,omitempty" json:"space,omitempty"`
 }
 
 type Vector1D struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Zoom" json:"-"`
 
-	X float32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
 	//
 	// Zoom coordinate space selector. The following options are defined:
 	//
 
-	Space string `xml:"http://www.onvif.org/ver10/schema space,attr,omitempty" json:"space,omitempty"`
+	Space string `xml:"space,attr,omitempty" json:"space,omitempty"`
 }
 
 type PTZVector struct {
@@ -119,19 +119,19 @@ type PTZMoveStatus struct {
 }
 
 type Vector struct {
-	X float32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
-	Y float32 `xml:"http://www.onvif.org/ver10/schema y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
 }
 
 type Rectangle struct {
-	Bottom float32 `xml:"http://www.onvif.org/ver10/schema bottom,attr,omitempty" json:"bottom,omitempty"`
+	Bottom float32 `xml:"bottom,attr,omitempty" json:"bottom,omitempty"`
 
-	Top float32 `xml:"http://www.onvif.org/ver10/schema top,attr,omitempty" json:"top,omitempty"`
+	Top float32 `xml:"top,attr,omitempty" json:"top,omitempty"`
 
-	Right float32 `xml:"http://www.onvif.org/ver10/schema right,attr,omitempty" json:"right,omitempty"`
+	Right float32 `xml:"right,attr,omitempty" json:"right,omitempty"`
 
-	Left float32 `xml:"http://www.onvif.org/ver10/schema left,attr,omitempty" json:"left,omitempty"`
+	Left float32 `xml:"left,attr,omitempty" json:"left,omitempty"`
 }
 
 type Polygon struct {
@@ -139,11 +139,11 @@ type Polygon struct {
 }
 
 type Color struct {
-	X float32 `xml:"http://www.onvif.org/ver10/schema X,attr,omitempty" json:"X,omitempty"`
+	X float32 `xml:"X,attr,omitempty" json:"X,omitempty"`
 
-	Y float32 `xml:"http://www.onvif.org/ver10/schema Y,attr,omitempty" json:"Y,omitempty"`
+	Y float32 `xml:"Y,attr,omitempty" json:"Y,omitempty"`
 
-	Z float32 `xml:"http://www.onvif.org/ver10/schema Z,attr,omitempty" json:"Z,omitempty"`
+	Z float32 `xml:"Z,attr,omitempty" json:"Z,omitempty"`
 
 	//
 	// Acceptable values:
@@ -154,29 +154,29 @@ type Color struct {
 	//
 	//
 
-	Colorspace string `xml:"http://www.onvif.org/ver10/schema Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
+	Colorspace string `xml:"Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
 }
 
 type ColorCovariance struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Covariance" json:"-"`
 
-	XX float32 `xml:"http://www.onvif.org/ver10/schema XX,attr,omitempty" json:"XX,omitempty"`
+	XX float32 `xml:"XX,attr,omitempty" json:"XX,omitempty"`
 
-	YY float32 `xml:"http://www.onvif.org/ver10/schema YY,attr,omitempty" json:"YY,omitempty"`
+	YY float32 `xml:"YY,attr,omitempty" json:"YY,omitempty"`
 
-	ZZ float32 `xml:"http://www.onvif.org/ver10/schema ZZ,attr,omitempty" json:"ZZ,omitempty"`
+	ZZ float32 `xml:"ZZ,attr,omitempty" json:"ZZ,omitempty"`
 
-	XY float32 `xml:"http://www.onvif.org/ver10/schema XY,attr,omitempty" json:"XY,omitempty"`
+	XY float32 `xml:"XY,attr,omitempty" json:"XY,omitempty"`
 
-	XZ float32 `xml:"http://www.onvif.org/ver10/schema XZ,attr,omitempty" json:"XZ,omitempty"`
+	XZ float32 `xml:"XZ,attr,omitempty" json:"XZ,omitempty"`
 
-	YZ float32 `xml:"http://www.onvif.org/ver10/schema YZ,attr,omitempty" json:"YZ,omitempty"`
+	YZ float32 `xml:"YZ,attr,omitempty" json:"YZ,omitempty"`
 
 	//
 	// Acceptable values are the same as in tt:Color.
 	//
 
-	Colorspace string `xml:"http://www.onvif.org/ver10/schema Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
+	Colorspace string `xml:"Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
 }
 
 type ColorDescriptor struct {
@@ -212,15 +212,15 @@ type GeoLocation struct {
 
 	// East west location as angle.
 
-	Lon float64 `xml:"http://www.onvif.org/ver10/schema lon,attr,omitempty" json:"lon,omitempty"`
+	Lon float64 `xml:"lon,attr,omitempty" json:"lon,omitempty"`
 
 	// North south location as angle.
 
-	Lat float64 `xml:"http://www.onvif.org/ver10/schema lat,attr,omitempty" json:"lat,omitempty"`
+	Lat float64 `xml:"lat,attr,omitempty" json:"lat,omitempty"`
 
 	// Hight in meters above sea level.
 
-	Elevation float32 `xml:"http://www.onvif.org/ver10/schema elevation,attr,omitempty" json:"elevation,omitempty"`
+	Elevation float32 `xml:"elevation,attr,omitempty" json:"elevation,omitempty"`
 }
 
 type GeoOrientation struct {
@@ -228,15 +228,15 @@ type GeoOrientation struct {
 
 	// Rotation around the x axis.
 
-	Roll float32 `xml:"http://www.onvif.org/ver10/schema roll,attr,omitempty" json:"roll,omitempty"`
+	Roll float32 `xml:"roll,attr,omitempty" json:"roll,omitempty"`
 
 	// Rotation around the y axis.
 
-	Pitch float32 `xml:"http://www.onvif.org/ver10/schema pitch,attr,omitempty" json:"pitch,omitempty"`
+	Pitch float32 `xml:"pitch,attr,omitempty" json:"pitch,omitempty"`
 
 	// Rotation around the z axis.
 
-	Yaw float32 `xml:"http://www.onvif.org/ver10/schema yaw,attr,omitempty" json:"yaw,omitempty"`
+	Yaw float32 `xml:"yaw,attr,omitempty" json:"yaw,omitempty"`
 }
 
 type LocalLocation struct {
@@ -244,15 +244,15 @@ type LocalLocation struct {
 
 	// East west location as angle.
 
-	X float32 `xml:"http://www.onvif.org/ver10/schema x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
 
 	// North south location as angle.
 
-	Y float32 `xml:"http://www.onvif.org/ver10/schema y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
 
 	// Offset in meters from the sea level.
 
-	Z float32 `xml:"http://www.onvif.org/ver10/schema z,attr,omitempty" json:"z,omitempty"`
+	Z float32 `xml:"z,attr,omitempty" json:"z,omitempty"`
 }
 
 type LocalOrientation struct {
@@ -260,15 +260,15 @@ type LocalOrientation struct {
 
 	// Rotation around the y axis.
 
-	Pan float32 `xml:"http://www.onvif.org/ver10/schema pan,attr,omitempty" json:"pan,omitempty"`
+	Pan float32 `xml:"pan,attr,omitempty" json:"pan,omitempty"`
 
 	// Rotation around the z axis.
 
-	Tilt float32 `xml:"http://www.onvif.org/ver10/schema tilt,attr,omitempty" json:"tilt,omitempty"`
+	Tilt float32 `xml:"tilt,attr,omitempty" json:"tilt,omitempty"`
 
 	// Rotation around the x axis.
 
-	Roll float32 `xml:"http://www.onvif.org/ver10/schema roll,attr,omitempty" json:"roll,omitempty"`
+	Roll float32 `xml:"roll,attr,omitempty" json:"roll,omitempty"`
 }
 
 type LocationEntity struct {
@@ -287,21 +287,21 @@ type LocationEntity struct {
 
 	// Entity type the entry refers to, use a value from the tt:Entity enumeration.
 
-	Entity string `xml:"http://www.onvif.org/ver10/schema Entity,attr,omitempty" json:"Entity,omitempty"`
+	Entity string `xml:"Entity,attr,omitempty" json:"Entity,omitempty"`
 
 	// Optional entity token.
 
-	Token *ReferenceToken `xml:"http://www.onvif.org/ver10/schema Token,attr,omitempty" json:"Token,omitempty"`
+	Token *ReferenceToken `xml:"Token,attr,omitempty" json:"Token,omitempty"`
 
 	// If this value is true the entity cannot be deleted.
 
-	Fixed bool `xml:"http://www.onvif.org/ver10/schema Fixed,attr,omitempty" json:"Fixed,omitempty"`
+	Fixed bool `xml:"Fixed,attr,omitempty" json:"Fixed,omitempty"`
 
 	// Optional reference to the XAddr of another devices DeviceManagement service.
 
-	GeoSource string `xml:"http://www.onvif.org/ver10/schema GeoSource,attr,omitempty" json:"GeoSource,omitempty"`
+	GeoSource string `xml:"GeoSource,attr,omitempty" json:"GeoSource,omitempty"`
 
 	// If set the geo location is obtained internally.
 
-	AutoGeo bool `xml:"http://www.onvif.org/ver10/schema AutoGeo,attr,omitempty" json:"AutoGeo,omitempty"`
+	AutoGeo bool `xml:"AutoGeo,attr,omitempty" json:"AutoGeo,omitempty"`
 }

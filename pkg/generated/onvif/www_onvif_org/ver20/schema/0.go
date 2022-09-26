@@ -165,7 +165,7 @@ type ShapeDescriptorExtension struct {
 type StringLikelihood struct {
 	Value string `xml:",chardata" json:",omitempty"`
 
-	Likelihood float32 `xml:"http://www.onvif.org/ver10/schema Likelihood,attr,omitempty" json:"Likelihood,omitempty"`
+	Likelihood float32 `xml:"Likelihood,attr,omitempty" json:"Likelihood,omitempty"`
 }
 
 type ClassDescriptor struct {
@@ -224,7 +224,7 @@ type Object struct {
 
 	// Object ID of the parent object. eg: License plate object has Vehicle object as parent.
 
-	Parent int32 `xml:"http://www.onvif.org/ver10/schema Parent,attr,omitempty" json:"Parent,omitempty"`
+	Parent int32 `xml:"Parent,attr,omitempty" json:"Parent,omitempty"`
 }
 
 type ObjectExtension struct {
@@ -250,15 +250,15 @@ type Frame struct {
 
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	UtcTime soap.XSDDateTime `xml:"http://www.onvif.org/ver10/schema UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
+	UtcTime soap.XSDDateTime `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
 
 	// Default color space of Color definitions in frame. Valid values are "RGB" and "YCbCr". Defaults to "YCbCr".
 
-	Colorspace string `xml:"http://www.onvif.org/ver10/schema Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
+	Colorspace string `xml:"Colorspace,attr,omitempty" json:"Colorspace,omitempty"`
 
 	// Optional name of the analytics module that generated this frame.
 
-	Source string `xml:"http://www.onvif.org/ver10/schema Source,attr,omitempty" json:"Source,omitempty"`
+	Source string `xml:"Source,attr,omitempty" json:"Source,omitempty"`
 }
 
 type FrameExtension struct {
@@ -296,7 +296,7 @@ type Rename struct {
 }
 
 type ObjectId struct {
-	ObjectId int32 `xml:"http://www.onvif.org/ver10/schema ObjectId,attr,omitempty" json:"ObjectId,omitempty"`
+	ObjectId int32 `xml:"ObjectId,attr,omitempty" json:"ObjectId,omitempty"`
 }
 
 type Behaviour struct {
@@ -344,15 +344,15 @@ type MotionInCells struct {
 
 	// Number of columns of the cell grid (x dimension)
 
-	Columns int32 `xml:"http://www.onvif.org/ver10/schema Columns,attr,omitempty" json:"Columns,omitempty"`
+	Columns int32 `xml:"Columns,attr,omitempty" json:"Columns,omitempty"`
 
 	// Number of rows of the cell grid (y dimension)
 
-	Rows int32 `xml:"http://www.onvif.org/ver10/schema Rows,attr,omitempty" json:"Rows,omitempty"`
+	Rows int32 `xml:"Rows,attr,omitempty" json:"Rows,omitempty"`
 
 	// A “1” denotes a cell where motion is detected and a “0” an empty cell. The first cell is in the upper left corner. Then the cell order goes first from left to right and then from up to down.  If the number of cells is not a multiple of 8 the last byte is filled with zeros. The information is run length encoded according to Packbit coding in ISO 12369 (TIFF, Revision 6.0).
 
-	Cells []byte `xml:"http://www.onvif.org/ver10/schema Cells,attr,omitempty" json:"Cells,omitempty"`
+	Cells []byte `xml:"Cells,attr,omitempty" json:"Cells,omitempty"`
 }
 
 type MetadataStream struct {
@@ -392,7 +392,7 @@ type AudioAnalyticsStream struct {
 type AudioDescriptor struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
-	UtcTime soap.XSDDateTime `xml:"http://www.onvif.org/ver10/schema UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
+	UtcTime soap.XSDDateTime `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
 }
 
 type AudioAnalyticsStreamExtension struct {

@@ -106,7 +106,7 @@ type RelatesToType struct {
 
 	Value string `xml:",chardata" json:",omitempty"`
 
-	RelationshipType *RelationshipTypeOpenEnum `xml:"http://www.w3.org/2005/08/addressing RelationshipType,attr,omitempty" json:"RelationshipType,omitempty"`
+	RelationshipType *RelationshipTypeOpenEnum `xml:"RelationshipType,attr,omitempty" json:"RelationshipType,omitempty"`
 }
 
 type AttributedURIType string
