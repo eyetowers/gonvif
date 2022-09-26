@@ -28,16 +28,33 @@ gonvif completion bash
 ## Client Usage
 
 ```golang
-import "github.com/hooklift/gowsdl/soap"
+import (
+    "log"
 
-...
+    "github.com/eyetowers/gonvif/pkg/client"
+)
 
-client := soap.NewClient("http://IP[:PORT]/onvif/Media2")
-client.SetHeaders(soap.NewSecurity("USERNAME", "PASSWORD"))
-media := wsdl.NewMedia2(client)
-resp, err := media.GetProfiles(&wsdl.GetProfiles{
-	Type: []string{"All"},
-})
+func main() {
+    // Connect to the Onvif device.
+    onvif, err := client.New("http://IP[:PORT]", "USERNAME", "PASSWORD")
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Get the Media2 service client.
+    media, err := onvif.Media2()
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Make a request.
+    resp, err := media.GetProfiles(&wsdl.GetProfiles{
+        Type: []string{"All"},
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Process the response.
+    log.Printf("Got profiles: %v", resp)
+}
 ```
 
 ## License

@@ -52,7 +52,7 @@ type GetServices struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/device/wsdl GetServices" json:"-"`
 
 	// Indicates if the service capabilities (untyped) should be included in the response.
-	IncludeCapability bool `xml:"IncludeCapability,omitempty" json:"IncludeCapability,omitempty"`
+	IncludeCapability bool `xml:"IncludeCapability" json:"IncludeCapability,omitempty"`
 }
 
 type GetServicesResponse struct {

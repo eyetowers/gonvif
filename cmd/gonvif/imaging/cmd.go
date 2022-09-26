@@ -4,6 +4,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
+	"github.com/eyetowers/gonvif/pkg/client"
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/imaging/wsdl"
 )
 
@@ -26,10 +27,10 @@ func init() {
 	)
 }
 
-func ServiceClient(url, username, password string, vebose bool) (wsdl.ImagingPort, error) {
-	serviceURL, err := root.ServiceURL(url, "onvif/Imaging")
+func ServiceClient(url, username, password string, verbose bool) (wsdl.ImagingPort, error) {
+	onvif, err := client.New(url, username, password, verbose)
 	if err != nil {
 		return nil, err
 	}
-	return wsdl.NewImagingPort(root.AuthorizedSOAPClient(serviceURL, username, password, vebose)), nil
+	return onvif.Imaging()
 }
