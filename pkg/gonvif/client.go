@@ -1,4 +1,4 @@
-package client
+package gonvif
 
 import (
 	"bytes"

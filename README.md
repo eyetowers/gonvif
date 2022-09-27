@@ -31,17 +31,17 @@ gonvif completion bash
 import (
     "log"
 
-    "github.com/eyetowers/gonvif/pkg/client"
+    "github.com/eyetowers/gonvif/pkg/gonvif"
 )
 
 func main() {
     // Connect to the Onvif device.
-    onvif, err := client.New("http://IP[:PORT]", "USERNAME", "PASSWORD")
+    client, err := gonvif.New("http://IP[:PORT]", "USERNAME", "PASSWORD")
     if err != nil {
         log.Fatal(err)
     }
     // Get the Media2 service client.
-    media, err := onvif.Media2()
+    media, err := client.Media2()
     if err != nil {
         log.Fatal(err)
     }

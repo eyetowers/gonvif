@@ -4,8 +4,8 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
-	"github.com/eyetowers/gonvif/pkg/client"
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/imaging/wsdl"
+	"github.com/eyetowers/gonvif/pkg/gonvif"
 )
 
 var cmd = &cobra.Command{
@@ -28,7 +28,7 @@ func init() {
 }
 
 func ServiceClient(url, username, password string, verbose bool) (wsdl.ImagingPort, error) {
-	onvif, err := client.New(url, username, password, verbose)
+	onvif, err := gonvif.New(url, username, password, verbose)
 	if err != nil {
 		return nil, err
 	}
