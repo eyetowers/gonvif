@@ -19,6 +19,7 @@ func init() {
 	cmd.AddCommand(
 		getConfigurations,
 		getNodes,
+		getPresets,
 	)
 }
 

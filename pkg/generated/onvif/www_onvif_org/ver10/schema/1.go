@@ -3752,7 +3752,6 @@ type PTZSpeed struct {
 }
 
 type PTZPreset struct {
-	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Preset" json:"-"`
 
 	//
 	// A list of preset position name.
