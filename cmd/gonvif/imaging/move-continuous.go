@@ -28,9 +28,9 @@ var moveContinuous = &cobra.Command{
 
 func init() {
 	moveContinuous.Flags().StringVarP(&videoSourceToken, "video_source_token", "t", "", "Video source token")
-	moveContinuous.MarkFlagRequired("video_source_token")
+	root.MustMarkFlagRequired(moveContinuous, "video_source_token")
 	moveContinuous.Flags().Float32VarP(&speed, "speed", "s", 0, "Continuous focus speed")
-	moveContinuous.MarkFlagRequired("speed")
+	root.MustMarkFlagRequired(moveContinuous, "speed")
 }
 
 func runMoveContinuous(client wsdl.ImagingPort, videoSourceToken string, speed float32) error {

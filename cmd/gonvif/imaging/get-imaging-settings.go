@@ -27,7 +27,7 @@ var getImagingSettings = &cobra.Command{
 
 func init() {
 	getImagingSettings.Flags().StringVarP(&videoSourceToken, "video_source_token", "t", "", "Video source token")
-	getImagingSettings.MarkFlagRequired("video_source_token")
+	root.MustMarkFlagRequired(getImagingSettings, "video_source_token")
 }
 
 func runGetImagingSettings(client wsdl.ImagingPort, videoSourceToken string) error {

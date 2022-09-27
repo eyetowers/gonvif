@@ -28,9 +28,23 @@ func RequireAuthFlags(cmd *cobra.Command) {
 	cmd.PersistentFlags().StringVarP(&URL, "url", "a", "", "Base URL of the Onvif device.")
 	cmd.PersistentFlags().StringVarP(&Username, "username", "u", "", "Username for authentication with the Onvif device.")
 	cmd.PersistentFlags().StringVarP(&Password, "password", "p", "", "Password for authentication with the Onvif device.")
-	cmd.MarkPersistentFlagRequired("url")
-	cmd.MarkPersistentFlagRequired("username")
-	cmd.MarkPersistentFlagRequired("password")
+	MustMarkPersistentFlagRequired(cmd, "url")
+	MustMarkPersistentFlagRequired(cmd, "username")
+	MustMarkPersistentFlagRequired(cmd, "password")
+}
+
+func MustMarkFlagRequired(cmd *cobra.Command, flag string) {
+	err := cmd.MarkFlagRequired(flag)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func MustMarkPersistentFlagRequired(cmd *cobra.Command, flag string) {
+	err := cmd.MarkPersistentFlagRequired(flag)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func OutputJSON(payload interface{}) error {

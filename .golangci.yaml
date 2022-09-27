@@ -1,0 +1,12 @@
+run:
+  modules-download-mode: readonly
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/eyetowers/gonvif
+
+linters:
+  enable:
+    - goimports
+    - govet
+    - revive

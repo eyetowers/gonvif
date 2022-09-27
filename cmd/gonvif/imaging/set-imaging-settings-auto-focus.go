@@ -28,7 +28,7 @@ var setImagingSettingsAutoFocus = &cobra.Command{
 
 func init() {
 	setImagingSettingsAutoFocus.Flags().StringVarP(&videoSourceToken, "video_source_token", "t", "", "Video source token")
-	setImagingSettingsAutoFocus.MarkFlagRequired("video_source_token")
+	root.MustMarkFlagRequired(setImagingSettingsAutoFocus, "video_source_token")
 	setImagingSettingsAutoFocus.Flags().StringVarP(&autoFocus, "auto_focus", "f", "AUTO", "Auto focus mode")
 }
 

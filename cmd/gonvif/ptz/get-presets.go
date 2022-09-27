@@ -27,6 +27,7 @@ var getPresets = &cobra.Command{
 
 func init() {
 	getPresets.Flags().StringVarP(&profileToken, "profile_token", "t", "", "A reference to the MediaProfile where the operation should take place")
+	root.MustMarkFlagRequired(getPresets, "profile_token")
 }
 
 func runGetPresets(client wsdl.PTZ, profileToken string) error {
