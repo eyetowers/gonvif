@@ -5,7 +5,7 @@ package wsdl
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
+	"github.com/eyetowers/gowsdl/soap"
 	"time"
 
 	tt "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/schema"

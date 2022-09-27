@@ -5,7 +5,7 @@ package bf2
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
+	"github.com/eyetowers/gowsdl/soap"
 	"time"
 
 	wsa "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"

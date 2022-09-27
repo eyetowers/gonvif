@@ -5,7 +5,7 @@ package addressing
 import (
 	"context"
 	"encoding/xml"
-	"github.com/hooklift/gowsdl/soap"
+	"github.com/eyetowers/gowsdl/soap"
 	"time"
 )
 

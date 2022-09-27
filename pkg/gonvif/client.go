@@ -14,7 +14,7 @@ import (
 	imaging "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/imaging/wsdl"
 	media2 "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 	ptz "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/ptz/wsdl"
-	"github.com/hooklift/gowsdl/soap"
+	"github.com/eyetowers/gowsdl/soap"
 	"github.com/motemen/go-loghttp"
 )
 
