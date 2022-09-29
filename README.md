@@ -57,6 +57,11 @@ func main() {
 }
 ```
 
+## See Also
+
+Gonvif is used in the [eyetowers/Ginvif](https://github.com/eyetowers/ginvif) JSON to Onvif HTTP
+server adapter.
+
 ## License
 
 Gonvif is open source, released under the [MIT license](./LICENSE).
