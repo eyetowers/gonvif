@@ -20,6 +20,7 @@ func init() {
 		getAnalyticsConfigurations,
 		getProfiles,
 		getSnapshotURI,
+		getStreamURI,
 		getVideoSourceConfigurations,
 	)
 }
