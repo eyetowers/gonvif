@@ -43,17 +43,17 @@ const (
 )
 
 type IntRange struct {
-	Min int32 `xml:"Min,omitempty" json:"Min,omitempty"`
+	Min int32 `xml:"Min" json:"Min"`
 
-	Max int32 `xml:"Max,omitempty" json:"Max,omitempty"`
+	Max int32 `xml:"Max" json:"Max"`
 }
 
 type Vector2D struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema PanTilt" json:"-"`
 
-	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr" json:"x"`
 
-	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr" json:"y"`
 
 	//
 	// Pan/tilt coordinate space selector. The following options are defined:
@@ -65,7 +65,7 @@ type Vector2D struct {
 type Vector1D struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Zoom" json:"-"`
 
-	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr" json:"x"`
 
 	//
 	// Zoom coordinate space selector. The following options are defined:
@@ -119,19 +119,19 @@ type PTZMoveStatus struct {
 }
 
 type Vector struct {
-	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr" json:"x"`
 
-	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr" json:"y"`
 }
 
 type Rectangle struct {
-	Bottom float32 `xml:"bottom,attr,omitempty" json:"bottom,omitempty"`
+	Bottom float32 `xml:"bottom,attr" json:"bottom"`
 
-	Top float32 `xml:"top,attr,omitempty" json:"top,omitempty"`
+	Top float32 `xml:"top,attr" json:"top"`
 
-	Right float32 `xml:"right,attr,omitempty" json:"right,omitempty"`
+	Right float32 `xml:"right,attr" json:"right"`
 
-	Left float32 `xml:"left,attr,omitempty" json:"left,omitempty"`
+	Left float32 `xml:"left,attr" json:"left"`
 }
 
 type Polygon struct {
@@ -139,11 +139,11 @@ type Polygon struct {
 }
 
 type Color struct {
-	X float32 `xml:"X,attr,omitempty" json:"X,omitempty"`
+	X float32 `xml:"X,attr" json:"X"`
 
-	Y float32 `xml:"Y,attr,omitempty" json:"Y,omitempty"`
+	Y float32 `xml:"Y,attr" json:"Y"`
 
-	Z float32 `xml:"Z,attr,omitempty" json:"Z,omitempty"`
+	Z float32 `xml:"Z,attr" json:"Z"`
 
 	//
 	// Acceptable values:
@@ -160,17 +160,17 @@ type Color struct {
 type ColorCovariance struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Covariance" json:"-"`
 
-	XX float32 `xml:"XX,attr,omitempty" json:"XX,omitempty"`
+	XX float32 `xml:"XX,attr" json:"XX"`
 
-	YY float32 `xml:"YY,attr,omitempty" json:"YY,omitempty"`
+	YY float32 `xml:"YY,attr" json:"YY"`
 
-	ZZ float32 `xml:"ZZ,attr,omitempty" json:"ZZ,omitempty"`
+	ZZ float32 `xml:"ZZ,attr" json:"ZZ"`
 
-	XY float32 `xml:"XY,attr,omitempty" json:"XY,omitempty"`
+	XY float32 `xml:"XY,attr" json:"XY"`
 
-	XZ float32 `xml:"XZ,attr,omitempty" json:"XZ,omitempty"`
+	XZ float32 `xml:"XZ,attr" json:"XZ"`
 
-	YZ float32 `xml:"YZ,attr,omitempty" json:"YZ,omitempty"`
+	YZ float32 `xml:"YZ,attr" json:"YZ"`
 
 	//
 	// Acceptable values are the same as in tt:Color.
@@ -212,15 +212,15 @@ type GeoLocation struct {
 
 	// East west location as angle.
 
-	Lon float64 `xml:"lon,attr,omitempty" json:"lon,omitempty"`
+	Lon float64 `xml:"lon,attr" json:"lon"`
 
 	// North south location as angle.
 
-	Lat float64 `xml:"lat,attr,omitempty" json:"lat,omitempty"`
+	Lat float64 `xml:"lat,attr" json:"lat"`
 
 	// Hight in meters above sea level.
 
-	Elevation float32 `xml:"elevation,attr,omitempty" json:"elevation,omitempty"`
+	Elevation float32 `xml:"elevation,attr" json:"elevation"`
 }
 
 type GeoOrientation struct {
@@ -228,15 +228,15 @@ type GeoOrientation struct {
 
 	// Rotation around the x axis.
 
-	Roll float32 `xml:"roll,attr,omitempty" json:"roll,omitempty"`
+	Roll float32 `xml:"roll,attr" json:"roll"`
 
 	// Rotation around the y axis.
 
-	Pitch float32 `xml:"pitch,attr,omitempty" json:"pitch,omitempty"`
+	Pitch float32 `xml:"pitch,attr" json:"pitch"`
 
 	// Rotation around the z axis.
 
-	Yaw float32 `xml:"yaw,attr,omitempty" json:"yaw,omitempty"`
+	Yaw float32 `xml:"yaw,attr" json:"yaw"`
 }
 
 type LocalLocation struct {
@@ -244,15 +244,15 @@ type LocalLocation struct {
 
 	// East west location as angle.
 
-	X float32 `xml:"x,attr,omitempty" json:"x,omitempty"`
+	X float32 `xml:"x,attr" json:"x"`
 
 	// North south location as angle.
 
-	Y float32 `xml:"y,attr,omitempty" json:"y,omitempty"`
+	Y float32 `xml:"y,attr" json:"y"`
 
 	// Offset in meters from the sea level.
 
-	Z float32 `xml:"z,attr,omitempty" json:"z,omitempty"`
+	Z float32 `xml:"z,attr" json:"z"`
 }
 
 type LocalOrientation struct {
@@ -260,15 +260,15 @@ type LocalOrientation struct {
 
 	// Rotation around the y axis.
 
-	Pan float32 `xml:"pan,attr,omitempty" json:"pan,omitempty"`
+	Pan float32 `xml:"pan,attr" json:"pan"`
 
 	// Rotation around the z axis.
 
-	Tilt float32 `xml:"tilt,attr,omitempty" json:"tilt,omitempty"`
+	Tilt float32 `xml:"tilt,attr" json:"tilt"`
 
 	// Rotation around the x axis.
 
-	Roll float32 `xml:"roll,attr,omitempty" json:"roll,omitempty"`
+	Roll float32 `xml:"roll,attr" json:"roll"`
 }
 
 type LocationEntity struct {

@@ -303,8 +303,6 @@ type TopicExpressionType struct {
 }
 
 type FilterType struct {
-	XMLName xml.Name `xml:"http://docs.oasis-open.org/wsn/b-2 Filter" json:"-"`
-
 	Items []string `xml:",any" json:"items,omitempty"`
 }
 

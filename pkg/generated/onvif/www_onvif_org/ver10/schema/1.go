@@ -884,13 +884,13 @@ type DeviceEntity struct {
 type IntRectangle struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Bounds" json:"-"`
 
-	X int32 `xml:"x,attr,omitempty" json:"x,omitempty"`
+	X int32 `xml:"x,attr" json:"x"`
 
-	Y int32 `xml:"y,attr,omitempty" json:"y,omitempty"`
+	Y int32 `xml:"y,attr" json:"y"`
 
-	Width int32 `xml:"width,attr,omitempty" json:"width,omitempty"`
+	Width int32 `xml:"width,attr" json:"width"`
 
-	Height int32 `xml:"height,attr,omitempty" json:"height,omitempty"`
+	Height int32 `xml:"height,attr" json:"height"`
 }
 
 type IntRectangleRange struct {
@@ -909,9 +909,9 @@ type IntRectangleRange struct {
 }
 
 type FloatRange struct {
-	Min float32 `xml:"Min,omitempty" json:"Min,omitempty"`
+	Min float32 `xml:"Min" json:"Min"`
 
-	Max float32 `xml:"Max,omitempty" json:"Max,omitempty"`
+	Max float32 `xml:"Max" json:"Max"`
 }
 
 type DurationRange struct {
@@ -1105,13 +1105,13 @@ type LensProjection struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Projection" json:"-"`
 
 	// Angle of incidence.
-	Angle float32 `xml:"Angle,omitempty" json:"Angle,omitempty"`
+	Angle float32 `xml:"Angle" json:"Angle"`
 
 	// Mapping radius as a consequence of the emergent angle.
-	Radius float32 `xml:"Radius,omitempty" json:"Radius,omitempty"`
+	Radius float32 `xml:"Radius" json:"Radius"`
 
 	// Optional ray absorption at the given angle due to vignetting. A value of one means no absorption.
-	Transmittance float32 `xml:"Transmittance,omitempty" json:"Transmittance,omitempty"`
+	Transmittance float32 `xml:"Transmittance" json:"Transmittance"`
 
 	Items []string `xml:",any" json:"items,omitempty"`
 }
