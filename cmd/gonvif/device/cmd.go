@@ -19,6 +19,7 @@ func init() {
 	cmd.AddCommand(
 		getDeviceInformation,
 		getServices,
+		systemReboot,
 	)
 }
 
