@@ -23,6 +23,7 @@ func init() {
 		getStreamURI,
 		getVideoEncoderConfigurations,
 		getVideoSourceConfigurations,
+		setSynchronizationPoint,
 	)
 }
 
