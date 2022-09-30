@@ -65,9 +65,10 @@ func (p *pool) newClientSynced(k key) (Client, error) {
 func (p *pool) newClient(k key) (Client, error) {
 	client, err := New(k.baseURL, k.username, k.password, k.verbose)
 	if err != nil {
-		p.cache.Set(k, client, ttlcache.DefaultTTL)
+		return nil, err
 	}
-	return client, err
+	p.cache.Set(k, client, ttlcache.DefaultTTL)
+	return client, nil
 }
 
 var escaper = strings.NewReplacer(
