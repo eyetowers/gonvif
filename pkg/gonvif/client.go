@@ -151,8 +151,10 @@ func AuthorizedSOAPClient(serviceURL, username, password string, verbose bool) *
 	if verbose {
 		httpClient = verboseHTTPClient
 	}
-	client := soap.NewClient(serviceURL, soap.WithHTTPClient(httpClient))
-	client.SetHeaders(soap.NewSecurity(username, password))
+	client := soap.NewClient(serviceURL,
+		soap.WithHTTPClient(httpClient),
+		soap.WithSOAPAuth(username, password),
+	)
 	return client
 }
 
