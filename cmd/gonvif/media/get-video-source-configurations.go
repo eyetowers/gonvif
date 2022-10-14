@@ -20,7 +20,7 @@ var getVideoSourceConfigurations = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
-			return nil
+			return err
 		}
 		return runGetVideoSourceConfigurations(client, configurationToken, profileToken)
 	},
