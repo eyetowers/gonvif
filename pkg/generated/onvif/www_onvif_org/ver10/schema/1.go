@@ -1977,17 +1977,15 @@ type MulticastConfiguration struct {
 }
 
 type StreamSetup struct {
-
 	// Defines if a multicast or unicast stream is requested
-	Stream *StreamType `xml:"Stream,omitempty" json:"Stream,omitempty"`
+	Stream *StreamType `xml:"http://www.onvif.org/ver10/schema Stream,omitempty" json:"Stream,omitempty"`
 
-	Transport *Transport `xml:"Transport,omitempty" json:"Transport,omitempty"`
+	Transport *Transport `xml:"http://www.onvif.org/ver10/schema Transport,omitempty" json:"Transport,omitempty"`
 
 	Items []string `xml:",any" json:"items,omitempty"`
 }
 
 type Transport struct {
-
 	// Defines the network protocol for streaming, either UDP=RTP/UDP, RTSP=RTP/RTSP/TCP or HTTP=RTP/RTSP/HTTP/TCP
 	Protocol *TransportProtocol `xml:"Protocol,omitempty" json:"Protocol,omitempty"`
 

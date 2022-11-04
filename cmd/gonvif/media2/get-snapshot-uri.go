@@ -4,12 +4,8 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
-	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/media/wsdl"
+	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 	"github.com/eyetowers/gonvif/pkg/util"
-)
-
-var (
-	profileToken string
 )
 
 var getSnapshotURI = &cobra.Command{
@@ -30,7 +26,7 @@ func init() {
 	root.MustMarkFlagRequired(getSnapshotURI, "profile_token")
 }
 
-func runGetSnapshotURI(client wsdl.Media, profileToken string) error {
+func runGetSnapshotURI(client wsdl.Media2, profileToken string) error {
 	resp, err := client.GetSnapshotUri(&wsdl.GetSnapshotUri{
 		ProfileToken: util.NewReferenceTokenPtr(profileToken),
 	})

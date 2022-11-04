@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
-	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/media/wsdl"
+	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 	"github.com/eyetowers/gonvif/pkg/util"
 )
 
@@ -26,7 +26,7 @@ func init() {
 	root.MustMarkFlagRequired(setSynchronizationPoint, "profile_token")
 }
 
-func runSetSynchronizationPoint(client wsdl.Media, profileToken string) error {
+func runSetSynchronizationPoint(client wsdl.Media2, profileToken string) error {
 	resp, err := client.SetSynchronizationPoint(&wsdl.SetSynchronizationPoint{
 		ProfileToken: util.NewReferenceTokenPtr(profileToken),
 	})

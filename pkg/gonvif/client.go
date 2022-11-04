@@ -13,6 +13,7 @@ import (
 	"github.com/motemen/go-loghttp"
 
 	device "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/device/wsdl"
+	media "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/media/wsdl"
 	analytics "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/analytics/wsdl"
 	imaging "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/imaging/wsdl"
 	media2 "github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
@@ -34,6 +35,7 @@ type Client interface {
 	Analytics() (analytics.AnalyticsEnginePort, error)
 	Device() (device.Device, error)
 	Imaging() (imaging.ImagingPort, error)
+	Media() (media.Media, error)
 	Media2() (media2.Media2, error)
 	PTZ() (ptz.PTZ, error)
 }
@@ -42,6 +44,7 @@ type impl struct {
 	analytics analytics.AnalyticsEnginePort
 	device    device.Device
 	imaging   imaging.ImagingPort
+	media     media.Media
 	media2    media2.Media2
 	ptz       ptz.PTZ
 }
@@ -71,6 +74,9 @@ func New(baseURL, username, password string, verbose bool) (Client, error) {
 		}
 		if svc.Namespace == "http://www.onvif.org/ver20/imaging/wsdl" {
 			result.imaging = imaging.NewImagingPort(svcClient)
+		}
+		if svc.Namespace == "http://www.onvif.org/ver10/media/wsdl" {
+			result.media = media.NewMedia(svcClient)
 		}
 		if svc.Namespace == "http://www.onvif.org/ver20/media/wsdl" {
 			result.media2 = media2.NewMedia2(svcClient)
@@ -102,6 +108,13 @@ func (c *impl) Imaging() (imaging.ImagingPort, error) {
 		return nil, ErrServiceNotSupported
 	}
 	return c.imaging, nil
+}
+
+func (c *impl) Media() (media.Media, error) {
+	if c.media == nil {
+		return nil, ErrServiceNotSupported
+	}
+	return c.media, nil
 }
 
 func (c *impl) Media2() (media2.Media2, error) {

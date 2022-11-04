@@ -4,14 +4,12 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
-	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/media/wsdl"
-	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/schema"
+	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver20/media/wsdl"
 	"github.com/eyetowers/gonvif/pkg/util"
 )
 
 var (
 	protocol string
-	stream   string
 )
 
 var getStreamURI = &cobra.Command{
@@ -23,28 +21,20 @@ var getStreamURI = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		return runGetStreamURI(client, profileToken, protocol, stream)
+		return runGetStreamURI(client, profileToken, protocol)
 	},
 }
 
 func init() {
 	getStreamURI.Flags().StringVarP(&profileToken, "profile_token", "t", "", "The ProfileToken element indicates the media profile to use and will define the configuration of the content of the stream.")
-	getStreamURI.Flags().StringVarP(&protocol, "protocol", "r", "RTSP", "Defines the network protocol for streaming (UDP, TCP, RTSP, HTTP).")
-	getStreamURI.Flags().StringVarP(&stream, "stream", "s", "RTP-Unicast", "Defines the stream type for streaming (RTP-Unicast, RTP-Multicast).")
+	getStreamURI.Flags().StringVarP(&protocol, "protocol", "r", "RTSP", "Defines the network protocol for streaming (RtspUnicast, RtspMulticast, RTSP, RtspOverHttp).")
 	root.MustMarkFlagRequired(getStreamURI, "profile_token")
 }
 
-func runGetStreamURI(client wsdl.Media, profileToken string, protocol string, stream string) error {
-	p := schema.TransportProtocol(protocol)
-	s := schema.StreamType(stream)
+func runGetStreamURI(client wsdl.Media2, profileToken string, protocol string) error {
 	resp, err := client.GetStreamUri(&wsdl.GetStreamUri{
 		ProfileToken: util.NewReferenceTokenPtr(profileToken),
-		StreamSetup: &schema.StreamSetup{
-			Stream: &s,
-			Transport: &schema.Transport{
-				Protocol: &p,
-			},
-		},
+		Protocol:     protocol,
 	})
 	if err != nil {
 		return err
