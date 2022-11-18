@@ -18,6 +18,7 @@ func init() {
 	root.Command.AddCommand(cmd)
 	cmd.AddCommand(
 		getDeviceInformation,
+		getNetworkInterfaces,
 		getServices,
 		systemReboot,
 	)
