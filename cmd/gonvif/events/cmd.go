@@ -21,6 +21,7 @@ func init() {
 		getEventBrokers,
 		getEventProperties,
 		getServiceCapabilities,
+		streamEvents,
 	)
 }
 
