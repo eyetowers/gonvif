@@ -218,39 +218,39 @@ type Capabilities struct {
 
 	// Indicates that the WS Subscription policy is supported.
 
-	WSSubscriptionPolicySupport bool `xml:"http://www.onvif.org/ver10/events/wsdl WSSubscriptionPolicySupport,attr,omitempty" json:"WSSubscriptionPolicySupport,omitempty"`
+	WSSubscriptionPolicySupport bool `xml:"WSSubscriptionPolicySupport,attr,omitempty" json:"WSSubscriptionPolicySupport,omitempty"`
 
 	// Indicates that the WS Pull Point is supported.
 
-	WSPullPointSupport bool `xml:"http://www.onvif.org/ver10/events/wsdl WSPullPointSupport,attr,omitempty" json:"WSPullPointSupport,omitempty"`
+	WSPullPointSupport bool `xml:"WSPullPointSupport,attr,omitempty" json:"WSPullPointSupport,omitempty"`
 
 	// Indicates that the WS Pausable Subscription Manager Interface is supported.
 
-	WSPausableSubscriptionManagerInterfaceSupport bool `xml:"http://www.onvif.org/ver10/events/wsdl WSPausableSubscriptionManagerInterfaceSupport,attr,omitempty" json:"WSPausableSubscriptionManagerInterfaceSupport,omitempty"`
+	WSPausableSubscriptionManagerInterfaceSupport bool `xml:"WSPausableSubscriptionManagerInterfaceSupport,attr,omitempty" json:"WSPausableSubscriptionManagerInterfaceSupport,omitempty"`
 
 	// Maximum number of supported notification producers as defined by WS-BaseNotification.
 
-	MaxNotificationProducers int32 `xml:"http://www.onvif.org/ver10/events/wsdl MaxNotificationProducers,attr,omitempty" json:"MaxNotificationProducers,omitempty"`
+	MaxNotificationProducers int32 `xml:"MaxNotificationProducers,attr,omitempty" json:"MaxNotificationProducers,omitempty"`
 
 	// Maximum supported number of notification pull points.
 
-	MaxPullPoints int32 `xml:"http://www.onvif.org/ver10/events/wsdl MaxPullPoints,attr,omitempty" json:"MaxPullPoints,omitempty"`
+	MaxPullPoints int32 `xml:"MaxPullPoints,attr,omitempty" json:"MaxPullPoints,omitempty"`
 
 	// Indication if the device supports persistent notification storage.
 
-	PersistentNotificationStorage bool `xml:"http://www.onvif.org/ver10/events/wsdl PersistentNotificationStorage,attr,omitempty" json:"PersistentNotificationStorage,omitempty"`
+	PersistentNotificationStorage bool `xml:"PersistentNotificationStorage,attr,omitempty" json:"PersistentNotificationStorage,omitempty"`
 
 	// A space separated list of supported event broker protocols as defined by the tev:EventBrokerProtocol datatype.
 
-	EventBrokerProtocols string `xml:"http://www.onvif.org/ver10/events/wsdl EventBrokerProtocols,attr,omitempty" json:"EventBrokerProtocols,omitempty"`
+	EventBrokerProtocols string `xml:"EventBrokerProtocols,attr,omitempty" json:"EventBrokerProtocols,omitempty"`
 
 	// Maxiumum number of event broker configurations that can be added to the device.
 
-	MaxEventBrokers int32 `xml:"http://www.onvif.org/ver10/events/wsdl MaxEventBrokers,attr,omitempty" json:"MaxEventBrokers,omitempty"`
+	MaxEventBrokers int32 `xml:"MaxEventBrokers,attr,omitempty" json:"MaxEventBrokers,omitempty"`
 
 	// Indicates that metadata streaming over MQTT is supported
 
-	MetadataOverMQTT bool `xml:"http://www.onvif.org/ver10/events/wsdl MetadataOverMQTT,attr,omitempty" json:"MetadataOverMQTT,omitempty"`
+	MetadataOverMQTT bool `xml:"MetadataOverMQTT,attr,omitempty" json:"MetadataOverMQTT,omitempty"`
 }
 
 type EventBrokerConfig struct {
