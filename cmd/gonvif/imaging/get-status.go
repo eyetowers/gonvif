@@ -1,4 +1,4 @@
-package media
+package imaging
 
 import (
 	"github.com/spf13/cobra"

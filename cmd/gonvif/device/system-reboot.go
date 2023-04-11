@@ -1,4 +1,4 @@
-package media
+package device
 
 import (
 	"github.com/spf13/cobra"
