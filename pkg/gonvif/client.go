@@ -36,6 +36,7 @@ type Client interface {
 	Analytics() (analytics.AnalyticsEnginePort, error)
 	Device() (device.Device, error)
 	Events() (events.EventPortType, error)
+	Subscription(url string) (events.PullPointSubscription, error)
 	Imaging() (imaging.ImagingPort, error)
 	Media() (media.Media, error)
 	Media2() (media2.Media2, error)
@@ -43,6 +44,11 @@ type Client interface {
 }
 
 type impl struct {
+	baseURL  string
+	username string
+	password string
+	verbose  bool
+
 	analytics analytics.AnalyticsEnginePort
 	device    device.Device
 	events    events.EventPortType
@@ -63,7 +69,13 @@ func New(baseURL, username, password string, verbose bool) (Client, error) {
 		return nil, fmt.Errorf("listing available Onvif services: %w", err)
 	}
 
-	var result impl
+	result := impl{
+		baseURL:  baseURL,
+		username: username,
+		password: password,
+		verbose:  verbose,
+	}
+
 	for _, svc := range resp.Service {
 		svcClient, err := serviceSOAPClient(baseURL, svc.XAddr, username, password, verbose)
 		if err != nil {
@@ -114,6 +126,18 @@ func (c *impl) Events() (events.EventPortType, error) {
 		return nil, ErrServiceNotSupported
 	}
 	return c.events, nil
+}
+
+func (c *impl) Subscription(url string) (events.PullPointSubscription, error) {
+	if c.events == nil {
+		return nil, ErrServiceNotSupported
+	}
+	client, err := serviceSOAPClient(c.baseURL, url, c.username, c.password, c.verbose)
+	if err != nil {
+		return nil, err
+	}
+
+	return events.NewPullPointSubscription(client), nil
 }
 
 func (c *impl) Imaging() (imaging.ImagingPort, error) {

@@ -17,6 +17,7 @@ func init() {
 	root.RequireAuthFlags(cmd)
 	root.Command.AddCommand(cmd)
 	cmd.AddCommand(
+		createPullPointSubscription,
 		getEventBrokers,
 		getEventProperties,
 		getServiceCapabilities,

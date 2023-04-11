@@ -13,6 +13,7 @@ import (
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/media2"
 	_ "github.com/eyetowers/gonvif/cmd/gonvif/ptz"
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
+	_ "github.com/eyetowers/gonvif/cmd/gonvif/subscription"
 )
 
 func isTerminal(file *os.File) bool {

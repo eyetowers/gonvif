@@ -300,6 +300,8 @@ type TopicExpressionType struct {
 	Items []string `xml:",any" json:"items,omitempty"`
 
 	Dialect string `xml:"Dialect,attr,omitempty" json:"Dialect,omitempty"`
+
+	Value string `xml:",chardata" json:"Value,omitempty"`
 }
 
 type FilterType struct {
@@ -320,7 +322,67 @@ type NotificationMessageHolderType struct {
 	ProducerReference *ProducerReference `xml:"ProducerReference,omitempty" json:"ProducerReference,omitempty"`
 
 	Message struct {
+		Message *Message `xml:"Message,omitempty" json:"Message,omitempty"`
 	} `xml:"Message,omitempty" json:"Message,omitempty"`
+}
+
+type Message struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Message" json:"-"`
+
+	// Set of tokens producing this message. The list may only contain SimpleItemDescription items.
+	// The set of tokens identify the component within the WS-Endpoint, which is responsible for the producing the message.
+	// For analytics events the token set shall include the VideoSourceConfigurationToken, the VideoAnalyticsConfigurationToken
+	// and the name of the analytics module or rule.
+	//
+	Source *ItemList `xml:"Source,omitempty" json:"Source,omitempty"`
+
+	// Describes optional message payload parameters that may be used as key. E.g. object IDs of tracked objects are conveyed as key.
+	Key *ItemList `xml:"Key,omitempty" json:"Key,omitempty"`
+
+	// Describes the payload of the message.
+	Data *ItemList `xml:"Data,omitempty" json:"Data,omitempty"`
+
+	Extension *MessageExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
+
+	UTCTime *time.Time `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
+
+	PropertyOperation string `xml:"PropertyOperation,attr,omitempty" json:"PropertyOperation,omitempty"`
+}
+
+type MessageExtension struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Extension" json:"-"`
+
+	Items []string `xml:",any" json:"items,omitempty"`
+}
+
+type ItemList struct {
+	SimpleItem []struct {
+
+		// Item name. Must be unique within a list.
+
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
+
+		Value string `xml:"Value,attr,omitempty" json:"Value,omitempty"`
+	} `xml:"SimpleItem,omitempty" json:"SimpleItem,omitempty"`
+
+	ElementItem []struct {
+
+		// Item name. Must be unique within a list.
+
+		Name string `xml:"Name,attr,omitempty" json:"Name,omitempty"`
+
+		// The type of the item. The Type must reference a defined type.
+
+		Value string `xml:"Value,attr,omitempty" json:"Value,omitempty"`
+	} `xml:"ElementItem,omitempty" json:"ElementItem,omitempty"`
+
+	Extension *ItemListExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
+}
+
+type ItemListExtension struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Extension" json:"-"`
+
+	Items []string `xml:",any" json:"items,omitempty"`
 }
 
 type SubscribeCreationFailedFaultType struct {
