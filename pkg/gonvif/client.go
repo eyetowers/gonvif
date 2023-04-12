@@ -36,7 +36,7 @@ type Client interface {
 	Analytics() (analytics.AnalyticsEnginePort, error)
 	Device() (device.Device, error)
 	Events() (events.EventPortType, error)
-	Subscription(url string) (events.PullPointSubscription, error)
+	Subscription(url string, headers ...any) (events.PullPointSubscription, error)
 	Imaging() (imaging.ImagingPort, error)
 	Media() (media.Media, error)
 	Media2() (media2.Media2, error)
@@ -128,7 +128,7 @@ func (c *impl) Events() (events.EventPortType, error) {
 	return c.events, nil
 }
 
-func (c *impl) Subscription(url string) (events.PullPointSubscription, error) {
+func (c *impl) Subscription(url string, headers ...any) (events.PullPointSubscription, error) {
 	if c.events == nil {
 		return nil, ErrServiceNotSupported
 	}
@@ -136,6 +136,7 @@ func (c *impl) Subscription(url string) (events.PullPointSubscription, error) {
 	if err != nil {
 		return nil, err
 	}
+	client.SetHeaders(headers)
 
 	return events.NewPullPointSubscription(client), nil
 }
@@ -185,7 +186,7 @@ func sanitizeServiceURL(baseURL, advertisedURL string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("malformed service advertised URL: %w", err)
 	}
-	return serviceURL(baseURL, u.Path)
+	return serviceURL(baseURL, u.RequestURI())
 }
 
 func serviceSOAPClient(baseURL, advertisedURL, username, password string, verbose bool) (*soap.Client, error) {
