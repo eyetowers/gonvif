@@ -4,6 +4,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
+	wsnt "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/b2"
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/events/wsdl"
 	"github.com/eyetowers/gonvif/pkg/gonvif"
 )
@@ -45,6 +46,11 @@ func processEvents(subscription wsdl.PullPointSubscription) error {
 			return err
 		}
 		err = root.OutputJSON(resp)
+		if err != nil {
+			return err
+		}
+		var time wsnt.AbsoluteOrRelativeTimeType = "PT120S"
+		_, err = subscription.Renew(&wsnt.Renew{TerminationTime: &time})
 		if err != nil {
 			return err
 		}

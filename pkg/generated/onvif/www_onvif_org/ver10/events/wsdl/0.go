@@ -507,6 +507,10 @@ type PullPointSubscription interface {
 	Unsubscribe(request *EmptyString) (*EmptyString, error)
 
 	UnsubscribeContext(ctx context.Context, request *EmptyString) (*EmptyString, error)
+
+	Renew(request *wsnt.Renew) (*wsnt.RenewResponse, error)
+
+	RenewContext(ctx context.Context, request *wsnt.Renew) (*wsnt.RenewResponse, error)
 }
 
 type pullPointSubscription struct {
@@ -582,6 +586,23 @@ func (service *pullPointSubscription) UnsubscribeContext(ctx context.Context, re
 
 func (service *pullPointSubscription) Unsubscribe(request *EmptyString) (*EmptyString, error) {
 	return service.UnsubscribeContext(
+		context.Background(),
+		request,
+	)
+}
+
+func (service *pullPointSubscription) RenewContext(ctx context.Context, request *wsnt.Renew) (*wsnt.RenewResponse, error) {
+	response := new(wsnt.RenewResponse)
+	err := service.client.CallContext(ctx, "''", request, response)
+	if err != nil {
+		return nil, err
+	}
+
+	return response, nil
+}
+
+func (service *pullPointSubscription) Renew(request *wsnt.Renew) (*wsnt.RenewResponse, error) {
+	return service.RenewContext(
 		context.Background(),
 		request,
 	)
