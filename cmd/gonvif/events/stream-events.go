@@ -1,12 +1,24 @@
 package events
 
 import (
+	"context"
+	"time"
+
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
 	wsnt "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/b2"
 	"github.com/eyetowers/gonvif/pkg/generated/onvif/www_onvif_org/ver10/events/wsdl"
 	"github.com/eyetowers/gonvif/pkg/gonvif"
+)
+
+const (
+	unsubscribeTimeout = 2 * time.Second
+	pollTimeout        = "PT60S"
+)
+
+var (
+	subscriptionTimeout wsnt.AbsoluteOrRelativeTimeType = "PT120S"
 )
 
 var streamEvents = &cobra.Command{
@@ -27,7 +39,9 @@ func runStreamEvents(client gonvif.Client) error {
 	if err != nil {
 		return err
 	}
-	resp, err := events.CreatePullPointSubscription(&wsdl.CreatePullPointSubscription{})
+	resp, err := events.CreatePullPointSubscription(&wsdl.CreatePullPointSubscription{
+		InitialTerminationTime: &subscriptionTimeout,
+	})
 	if err != nil {
 		return err
 	}
@@ -40,8 +54,9 @@ func runStreamEvents(client gonvif.Client) error {
 }
 
 func processEvents(subscription wsdl.PullPointSubscription) error {
+	defer func() { _ = unsubscribe(subscription) }()
 	for {
-		resp, err := subscription.PullMessages(&wsdl.PullMessages{MessageLimit: 100, Timeout: "PT60S"})
+		resp, err := subscription.PullMessages(&wsdl.PullMessages{MessageLimit: 100, Timeout: pollTimeout})
 		if err != nil {
 			return err
 		}
@@ -49,10 +64,18 @@ func processEvents(subscription wsdl.PullPointSubscription) error {
 		if err != nil {
 			return err
 		}
-		var time wsnt.AbsoluteOrRelativeTimeType = "PT120S"
-		_, err = subscription.Renew(&wsnt.Renew{TerminationTime: &time})
+		_, err = subscription.Renew(&wsnt.Renew{TerminationTime: &subscriptionTimeout})
 		if err != nil {
 			return err
 		}
 	}
+}
+
+func unsubscribe(subscription wsdl.PullPointSubscription) error {
+	ctx, cancel := context.WithTimeout(context.Background(), unsubscribeTimeout)
+	defer cancel()
+
+	var empty wsdl.EmptyString
+	_, err := subscription.UnsubscribeContext(ctx, &empty)
+	return err
 }
