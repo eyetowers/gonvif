@@ -344,7 +344,7 @@ type Message struct {
 
 	Extension *MessageExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
 
-	UTCTime *time.Time `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
+	UTCTime *soap.XSDDateTime `xml:"UtcTime,attr,omitempty" json:"UtcTime,omitempty"`
 
 	PropertyOperation string `xml:"PropertyOperation,attr,omitempty" json:"PropertyOperation,omitempty"`
 }

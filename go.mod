@@ -3,7 +3,7 @@ module github.com/eyetowers/gonvif
 go 1.20
 
 require (
-	github.com/eyetowers/gowsdl v0.0.0-20221014084026-eab9a0b8dfad
+	github.com/eyetowers/gowsdl v0.0.0-20230602114649-7e912399d91a
 	github.com/golangci/golangci-lint v1.52.2
 	github.com/ivanpirog/coloredcobra v1.0.1
 	github.com/jellydator/ttlcache/v3 v3.0.0

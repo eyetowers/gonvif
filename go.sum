@@ -126,8 +126,8 @@ github.com/esimonov/ifshort v1.0.4 h1:6SID4yGWfRae/M7hkVDVVyppy8q/v9OuxNdmjLQStB
 github.com/esimonov/ifshort v1.0.4/go.mod h1:Pe8zjlRrJ80+q2CxHLfEOfTwxCZ4O+MuhcHcfgNWTk0=
 github.com/ettle/strcase v0.1.1 h1:htFueZyVeE1XNnMEfbqp5r67qAN/4r6ya1ysq8Q+Zcw=
 github.com/ettle/strcase v0.1.1/go.mod h1:hzDLsPC7/lwKyBOywSHEP89nt2pDgdy+No1NBA9o9VY=
-github.com/eyetowers/gowsdl v0.0.0-20221014084026-eab9a0b8dfad h1:h4JwG58dVnVAI7B+6jPu7wwrkJRmfA3/S/RqKLxuUH8=
-github.com/eyetowers/gowsdl v0.0.0-20221014084026-eab9a0b8dfad/go.mod h1:xLHCSGvEMra+jaTvHIsVplniyxHab+nPJp1cEzjeieA=
+github.com/eyetowers/gowsdl v0.0.0-20230602114649-7e912399d91a h1:7Px25fQ7WzkG6Bcz1bj9ilLo0IH8iLGm+kJV5dMLTkw=
+github.com/eyetowers/gowsdl v0.0.0-20230602114649-7e912399d91a/go.mod h1:xLHCSGvEMra+jaTvHIsVplniyxHab+nPJp1cEzjeieA=
 github.com/fatih/color v1.13.0/go.mod h1:kLAiJbzzSOZDVNGyDpeOxJ47H46qBXwg5ILebYFFOfk=
 github.com/fatih/color v1.15.0 h1:kOqh6YHBtK8aywxGerMG2Eq3H6Qgoqeo13Bk2Mv/nBs=
 github.com/fatih/color v1.15.0/go.mod h1:0h5ZqXfHYED7Bhv2ZJamyIOUej9KtShiJESRwBDUSsw=
