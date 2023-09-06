@@ -211,16 +211,30 @@ func AuthorizedSOAPClient(serviceURL, username, password string, verbose bool) *
 
 func logResponse(resp *http.Response) {
 	log.Printf("<-- %d %s", resp.StatusCode, resp.Request.URL)
-	defer resp.Body.Close()
-	body, _ := io.ReadAll(resp.Body)
-	log.Printf("BODY:\n%s", string(body))
-	resp.Body = io.NopCloser(bytes.NewReader(body))
+	resp.Body = logBodyAndHeaders(resp.Body, resp.Header)
 }
 
 func logRequest(req *http.Request) {
 	log.Printf("--> %s %s", req.Method, req.URL)
-	defer req.Body.Close()
-	body, _ := io.ReadAll(req.Body)
-	log.Printf("BODY:\n%s", string(body))
-	req.Body = io.NopCloser(bytes.NewReader(body))
+	req.Body = logBodyAndHeaders(req.Body, req.Header)
+}
+
+func logBodyAndHeaders(body io.ReadCloser, headers http.Header) io.ReadCloser {
+	defer body.Close()
+	bytes, copy := readAndDuplicate(body)
+	log.Printf("HEADERS:\n")
+	for k, vals := range headers {
+		for _, val := range vals {
+			log.Printf("%s: %s\n", k, val)
+		}
+	}
+	log.Printf("BODY:\n%s", string(bytes))
+	return copy
+}
+
+func readAndDuplicate(body io.ReadCloser) ([]byte, io.ReadCloser) {
+	defer body.Close()
+	buf, _ := io.ReadAll(body)
+
+	return buf, io.NopCloser(bytes.NewReader(buf))
 }

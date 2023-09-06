@@ -20,6 +20,7 @@ func init() {
 		getDeviceInformation,
 		getNetworkInterfaces,
 		getServices,
+		setSystemFactoryDefault,
 		systemReboot,
 	)
 }
