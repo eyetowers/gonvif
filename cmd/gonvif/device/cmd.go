@@ -1,6 +1,8 @@
 package device
 
 import (
+	"context"
+
 	"github.com/spf13/cobra"
 
 	"github.com/eyetowers/gonvif/cmd/gonvif/root"
@@ -26,7 +28,7 @@ func init() {
 }
 
 func ServiceClient(url, username, password string, verbose bool) (wsdl.Device, error) {
-	onvif, err := gonvif.New(url, username, password, verbose)
+	onvif, err := gonvif.New(context.Background(), url, username, password, verbose)
 	if err != nil {
 		return nil, err
 	}

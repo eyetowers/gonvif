@@ -2,6 +2,7 @@ package gonvif
 
 import (
 	"bytes"
+	"context"
 	"errors"
 	"fmt"
 	"io"
@@ -58,13 +59,13 @@ type impl struct {
 	ptz       ptz.PTZ
 }
 
-func New(baseURL, username, password string, verbose bool) (Client, error) {
+func New(ctx context.Context, baseURL, username, password string, verbose bool) (Client, error) {
 	soapClient, err := serviceSOAPClient(baseURL, "onvif/device_service", username, password, verbose)
 	if err != nil {
 		return nil, err
 	}
 	d := device.NewDevice(soapClient)
-	resp, err := d.GetServices(&device.GetServices{})
+	resp, err := d.GetServicesContext(ctx, &device.GetServices{})
 	if err != nil {
 		return nil, fmt.Errorf("listing available Onvif services: %w", err)
 	}

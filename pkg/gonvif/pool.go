@@ -1,6 +1,7 @@
 package gonvif
 
 import (
+	"context"
 	"fmt"
 	"strings"
 	"time"
@@ -10,7 +11,7 @@ import (
 )
 
 type ClientPool interface {
-	GetClient(baseURL, username, password string, verbose bool) (Client, error)
+	GetClient(ctx context.Context, baseURL, username, password string, verbose bool) (Client, error)
 }
 
 func NewPool(ttl time.Duration) ClientPool {
@@ -36,7 +37,11 @@ type pool struct {
 	group singleflight.Group
 }
 
-func (p *pool) GetClient(baseURL, username, password string, verbose bool) (Client, error) {
+func (p *pool) GetClient(
+	ctx context.Context,
+	baseURL, username, password string,
+	verbose bool,
+) (Client, error) {
 	k := key{
 		baseURL:  baseURL,
 		username: username,
@@ -49,12 +54,12 @@ func (p *pool) GetClient(baseURL, username, password string, verbose bool) (Clie
 		return item.Value(), nil
 	}
 
-	return p.newClientSynced(k)
+	return p.newClientSynced(ctx, k)
 }
 
-func (p *pool) newClientSynced(k key) (Client, error) {
+func (p *pool) newClientSynced(ctx context.Context, k key) (Client, error) {
 	v, err, _ := p.group.Do(k.String(), func() (any, error) {
-		return p.newClient(k)
+		return p.newClient(ctx, k)
 	})
 	if err != nil {
 		return nil, err
@@ -62,8 +67,8 @@ func (p *pool) newClientSynced(k key) (Client, error) {
 	return v.(Client), nil
 }
 
-func (p *pool) newClient(k key) (Client, error) {
-	client, err := New(k.baseURL, k.username, k.password, k.verbose)
+func (p *pool) newClient(ctx context.Context, k key) (Client, error) {
+	client, err := New(ctx, k.baseURL, k.username, k.password, k.verbose)
 	if err != nil {
 		return nil, err
 	}

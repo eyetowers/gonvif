@@ -26,7 +26,7 @@ var streamEvents = &cobra.Command{
 	Short: "Stream live Onvif events from the device.",
 	Args:  cobra.NoArgs,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		onvif, err := gonvif.New(root.URL, root.Username, root.Password, root.Verbose)
+		onvif, err := gonvif.New(context.Background(), root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err
 		}
