@@ -11,7 +11,7 @@ var getDeviceInformation = &cobra.Command{
 	Use:   "get-device-information",
 	Short: "Show Onvif device information",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err

@@ -12,7 +12,7 @@ var setSynchronizationPoint = &cobra.Command{
 	Use:   "set-synchronization-point",
 	Short: "Request Onvif device to insert a key frame into all streams for the given profile",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err

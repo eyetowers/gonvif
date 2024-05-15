@@ -17,7 +17,7 @@ var getVideoSourceConfigurations = &cobra.Command{
 	Use:   "get-video-source-configurations",
 	Short: "List Onvif device video source configurations",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err

@@ -12,7 +12,7 @@ var getOptions = &cobra.Command{
 	Use:   "get-options",
 	Short: "Show Onvif device imaging options",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err

@@ -222,7 +222,7 @@ func logRequest(req *http.Request) {
 
 func logBodyAndHeaders(body io.ReadCloser, headers http.Header) io.ReadCloser {
 	defer body.Close()
-	bytes, copy := readAndDuplicate(body)
+	bytes, dupe := readAndDuplicate(body)
 	log.Printf("HEADERS:\n")
 	for k, vals := range headers {
 		for _, val := range vals {
@@ -230,7 +230,7 @@ func logBodyAndHeaders(body io.ReadCloser, headers http.Header) io.ReadCloser {
 		}
 	}
 	log.Printf("BODY:\n%s", string(bytes))
-	return copy
+	return dupe
 }
 
 func readAndDuplicate(body io.ReadCloser) ([]byte, io.ReadCloser) {

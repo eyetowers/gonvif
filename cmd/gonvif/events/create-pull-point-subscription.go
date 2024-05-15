@@ -11,7 +11,7 @@ var createPullPointSubscription = &cobra.Command{
 	Use:   "create-pull-point-subscription",
 	Short: "Create Onvif events pull point subscription",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, root.Verbose)
 		if err != nil {
 			return err

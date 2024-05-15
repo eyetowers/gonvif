@@ -11,7 +11,7 @@ var pullMessages = &cobra.Command{
 	Use:   "pull-messages",
 	Short: "Pulls Onvif events from a pull point subscription",
 	Args:  cobra.NoArgs,
-	RunE: func(cmd *cobra.Command, args []string) error {
+	RunE: func(*cobra.Command, []string) error {
 		client, err := ServiceClient(root.URL, root.Username, root.Password, subscription, root.Verbose)
 		if err != nil {
 			return err
