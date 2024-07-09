@@ -3112,6 +3112,8 @@ type DateTime struct {
 }
 
 type Date struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Date" json:"-"`
+
 	Year int32 `xml:"Year,omitempty" json:"Year,omitempty"`
 
 	// Range is 1 to 12.
@@ -3122,6 +3124,7 @@ type Date struct {
 }
 
 type Time struct {
+	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Time" json:"-"`
 
 	// Range is 0 to 23.
 	Hour int32 `xml:"Hour,omitempty" json:"Hour,omitempty"`
@@ -3136,7 +3139,7 @@ type Time struct {
 type TimeZone struct {
 
 	// Posix timezone string.
-	TZ string `xml:"TZ,omitempty" json:"TZ,omitempty"`
+	TZ string `xml:"http://www.onvif.org/ver10/schema TZ,omitempty" json:"TZ,omitempty"`
 }
 
 type RemoteUser struct {
