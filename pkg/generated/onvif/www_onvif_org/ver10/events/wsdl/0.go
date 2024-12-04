@@ -7,11 +7,11 @@ import (
 	"encoding/xml"
 	"time"
 
+	"github.com/eyetowers/gowsdl/soap"
+
 	wsa "github.com/eyetowers/gonvif/pkg/generated/onvif/www_w3_org/2005/08/addressing"
 	wsnt "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/b2"
 	wstop "github.com/eyetowers/gonvif/pkg/generated/onvif/docs_oasisopen_org/wsn/t1"
-
-	"github.com/eyetowers/gowsdl/soap"
 )
 
 // against "unused imports"
@@ -504,9 +504,9 @@ type PullPointSubscription interface {
 	/* The device shall provide the following Unsubscribe command for all SubscriptionManager endpoints returned by the CreatePullPointSubscription command.
 	This command shall terminate the lifetime of a pull point.
 	*/
-	Unsubscribe(request *EmptyString) (*EmptyString, error)
+	Unsubscribe(request *wsnt.Unsubscribe) (*wsnt.UnsubscribeResponse, error)
 
-	UnsubscribeContext(ctx context.Context, request *EmptyString) (*EmptyString, error)
+	UnsubscribeContext(ctx context.Context, request *wsnt.Unsubscribe) (*wsnt.UnsubscribeResponse, error)
 
 	Renew(request *wsnt.Renew) (*wsnt.RenewResponse, error)
 
@@ -574,8 +574,8 @@ func (service *pullPointSubscription) SetSynchronizationPoint(request *SetSynchr
 	)
 }
 
-func (service *pullPointSubscription) UnsubscribeContext(ctx context.Context, request *EmptyString) (*EmptyString, error) {
-	response := new(EmptyString)
+func (service *pullPointSubscription) UnsubscribeContext(ctx context.Context, request *wsnt.Unsubscribe) (*wsnt.UnsubscribeResponse, error) {
+	response := new(wsnt.UnsubscribeResponse)
 	err := service.client.CallContext(ctx, "''", request, response)
 	if err != nil {
 		return nil, err
@@ -584,7 +584,7 @@ func (service *pullPointSubscription) UnsubscribeContext(ctx context.Context, re
 	return response, nil
 }
 
-func (service *pullPointSubscription) Unsubscribe(request *EmptyString) (*EmptyString, error) {
+func (service *pullPointSubscription) Unsubscribe(request *wsnt.Unsubscribe) (*wsnt.UnsubscribeResponse, error) {
 	return service.UnsubscribeContext(
 		context.Background(),
 		request,
