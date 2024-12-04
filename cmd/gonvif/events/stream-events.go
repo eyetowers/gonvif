@@ -75,7 +75,7 @@ func unsubscribe(subscription wsdl.PullPointSubscription) error {
 	ctx, cancel := context.WithTimeout(context.Background(), unsubscribeTimeout)
 	defer cancel()
 
-	var empty wsdl.EmptyString
-	_, err := subscription.UnsubscribeContext(ctx, &empty)
+	var unsubscribe wsnt.Unsubscribe
+	_, err := subscription.UnsubscribeContext(ctx, &unsubscribe)
 	return err
 }
