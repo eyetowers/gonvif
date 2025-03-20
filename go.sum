@@ -143,8 +143,8 @@ github.com/envoyproxy/go-control-plane v0.9.4/go.mod h1:6rpuAdCZL397s3pYoYcLgu1m
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
 github.com/ettle/strcase v0.2.0 h1:fGNiVF21fHXpX1niBgk0aROov1LagYsOwV/xqKDKR/Q=
 github.com/ettle/strcase v0.2.0/go.mod h1:DajmHElDSaX76ITe3/VHVyMin4LWSJN5Z909Wp+ED1A=
-github.com/eyetowers/gowsdl v0.0.0-20250218140909-91389c5187d3 h1:pgQgzx7pMuWUtzEpONT4xs9oX+sT1Hj54croQB8l44E=
-github.com/eyetowers/gowsdl v0.0.0-20250218140909-91389c5187d3/go.mod h1:eVa6A7jf75YysW5xM8LDK3cGidQTJfUkAKQK0nkaW3M=
+github.com/eyetowers/gowsdl v0.0.0-20250320090504-b572a21bb2ca h1:OXOOUup0zYfivG1kRBTueyD2hFQU6Lj+J4BHlVfstQI=
+github.com/eyetowers/gowsdl v0.0.0-20250320090504-b572a21bb2ca/go.mod h1:eVa6A7jf75YysW5xM8LDK3cGidQTJfUkAKQK0nkaW3M=
 github.com/fatih/color v1.13.0/go.mod h1:kLAiJbzzSOZDVNGyDpeOxJ47H46qBXwg5ILebYFFOfk=
 github.com/fatih/color v1.18.0 h1:S8gINlzdQ840/4pfAwic/ZE0djQEH3wM94VfqLTZcOM=
 github.com/fatih/color v1.18.0/go.mod h1:4FelSpRwEGDpQ12mAdzqdOukCy4u8WUtOY6lkT/6HfU=
