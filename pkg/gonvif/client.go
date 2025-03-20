@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"time"
 
 	"github.com/eyetowers/gowsdl/soap"
 	"github.com/motemen/go-loghttp"
@@ -49,6 +50,7 @@ type impl struct {
 	username string
 	password string
 	verbose  bool
+	diff     time.Duration
 
 	analytics analytics.AnalyticsEnginePort
 	device    device.Device
@@ -60,11 +62,16 @@ type impl struct {
 }
 
 func New(ctx context.Context, baseURL, username, password string, verbose bool) (Client, error) {
-	soapClient, err := serviceSOAPClient(baseURL, "onvif/device_service", username, password, verbose)
+	soapClient, err := serviceSOAPClient(baseURL, "onvif/device_service", username, password, verbose, 0)
 	if err != nil {
 		return nil, err
 	}
 	d := device.NewDevice(soapClient)
+	diff, err := getTimeDiff(ctx, d)
+	if err != nil {
+		return nil, err
+	}
+	soapClient.SetTimeDiff(diff)
 	resp, err := d.GetServicesContext(ctx, &device.GetServices{})
 	if err != nil {
 		return nil, fmt.Errorf("listing available Onvif services: %w", err)
@@ -75,10 +82,11 @@ func New(ctx context.Context, baseURL, username, password string, verbose bool) 
 		username: username,
 		password: password,
 		verbose:  verbose,
+		diff:     diff,
 	}
 
 	for _, svc := range resp.Service {
-		svcClient, err := serviceSOAPClient(baseURL, svc.XAddr, username, password, verbose)
+		svcClient, err := serviceSOAPClient(baseURL, svc.XAddr, username, password, verbose, diff)
 		if err != nil {
 			return nil, err
 		}
@@ -108,6 +116,31 @@ func New(ctx context.Context, baseURL, username, password string, verbose bool) 
 	return &result, nil
 }
 
+func getTimeDiff(ctx context.Context, d device.Device) (time.Duration, error) {
+	resp, err := d.GetSystemDateAndTimeContext(ctx, &device.GetSystemDateAndTime{})
+	if err != nil {
+		return 0, fmt.Errorf("getting Onvif device time: %w", err)
+	}
+	if resp.SystemDateAndTime == nil ||
+		resp.SystemDateAndTime.UTCDateTime == nil ||
+		resp.SystemDateAndTime.UTCDateTime.Date == nil ||
+		resp.SystemDateAndTime.UTCDateTime.Time == nil {
+		return 0, fmt.Errorf("no time returned by Onvif device")
+	}
+	utc := resp.SystemDateAndTime.UTCDateTime
+	deviceTime := time.Date(
+		int(utc.Date.Year),
+		time.Month(utc.Date.Month),
+		int(utc.Date.Day),
+		int(utc.Time.Hour),
+		int(utc.Time.Minute),
+		int(utc.Time.Second),
+		0,
+		time.UTC,
+	)
+	return time.Until(deviceTime), nil
+}
+
 func (c *impl) Analytics() (analytics.AnalyticsEnginePort, error) {
 	if c.analytics == nil {
 		return nil, ErrServiceNotSupported
@@ -133,7 +166,7 @@ func (c *impl) Subscription(url string, headers ...any) (events.PullPointSubscri
 	if c.events == nil {
 		return nil, ErrServiceNotSupported
 	}
-	client, err := serviceSOAPClient(c.baseURL, url, c.username, c.password, c.verbose)
+	client, err := serviceSOAPClient(c.baseURL, url, c.username, c.password, c.verbose, c.diff)
 	if err != nil {
 		return nil, err
 	}
@@ -190,15 +223,19 @@ func sanitizeServiceURL(baseURL, advertisedURL string) (string, error) {
 	return serviceURL(baseURL, u.RequestURI())
 }
 
-func serviceSOAPClient(baseURL, advertisedURL, username, password string, verbose bool) (*soap.Client, error) {
+func serviceSOAPClient(
+	baseURL, advertisedURL, username, password string, verbose bool, diff time.Duration,
+) (*soap.Client, error) {
 	u, err := sanitizeServiceURL(baseURL, advertisedURL)
 	if err != nil {
 		return nil, err
 	}
-	return AuthorizedSOAPClient(u, username, password, verbose), nil
+	return AuthorizedSOAPClient(u, username, password, verbose, diff), nil
 }
 
-func AuthorizedSOAPClient(serviceURL, username, password string, verbose bool) *soap.Client {
+func AuthorizedSOAPClient(
+	serviceURL, username, password string, verbose bool, diff time.Duration,
+) *soap.Client {
 	httpClient := http.DefaultClient
 	if verbose {
 		httpClient = verboseHTTPClient
@@ -206,6 +243,7 @@ func AuthorizedSOAPClient(serviceURL, username, password string, verbose bool) *
 	client := soap.NewClient(serviceURL,
 		soap.WithHTTPClient(httpClient),
 		soap.WithSOAPAuth(username, password),
+		soap.WithTimeDiff(diff),
 	)
 	return client
 }
