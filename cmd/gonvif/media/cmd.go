@@ -19,9 +19,13 @@ func init() {
 	root.RequireAuthFlags(cmd)
 	root.Command.AddCommand(cmd)
 	cmd.AddCommand(
+		addMetadataConfiguration,
+		getCompatibleMetadataConfigurations,
+		getMetadataConfigurations,
 		getProfiles,
 		getSnapshotURI,
 		getStreamURI,
+		setMetadataAnalytics,
 		setSynchronizationPoint,
 	)
 }
