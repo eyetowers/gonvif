@@ -432,7 +432,7 @@ type PTZStreamExtension struct {
 type EventStream struct {
 	XMLName xml.Name `xml:"http://www.onvif.org/ver10/schema Event" json:"-"`
 
-	NotificationMessage *wsnt.NotificationMessage `xml:"NotificationMessage,omitempty" json:"NotificationMessage,omitempty"`
+	NotificationMessage []*wsnt.NotificationMessage `xml:"NotificationMessage,omitempty" json:"NotificationMessage,omitempty"`
 
 	Extension *EventStreamExtension `xml:"Extension,omitempty" json:"Extension,omitempty"`
 }
