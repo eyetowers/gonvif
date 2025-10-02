@@ -62,16 +62,15 @@ type impl struct {
 }
 
 func New(ctx context.Context, baseURL, username, password string, verbose bool) (Client, error) {
-	soapClient, err := serviceSOAPClient(baseURL, "onvif/device_service", username, password, verbose, 0)
+	diff, err := getTimeDiff(ctx, baseURL, verbose)
+	if err != nil {
+		return nil, err
+	}
+	soapClient, err := serviceSOAPClient(baseURL, "onvif/device_service", username, password, verbose, diff)
 	if err != nil {
 		return nil, err
 	}
 	d := device.NewDevice(soapClient)
-	diff, err := getTimeDiff(ctx, d)
-	if err != nil {
-		return nil, err
-	}
-	soapClient.SetTimeDiff(diff)
 	resp, err := d.GetServicesContext(ctx, &device.GetServices{})
 	if err != nil {
 		return nil, fmt.Errorf("listing available Onvif services: %w", err)
@@ -116,7 +115,12 @@ func New(ctx context.Context, baseURL, username, password string, verbose bool) 
 	return &result, nil
 }
 
-func getTimeDiff(ctx context.Context, d device.Device) (time.Duration, error) {
+func getTimeDiff(ctx context.Context, baseURL string, verbose bool) (time.Duration, error) {
+	soapClient, err := unauthorizedServiceSOAPClient(baseURL, "onvif/device_service", verbose)
+	if err != nil {
+		return 0, err
+	}
+	d := device.NewDevice(soapClient)
 	resp, err := d.GetSystemDateAndTimeContext(ctx, &device.GetSystemDateAndTime{})
 	if err != nil {
 		return 0, fmt.Errorf("getting Onvif device time: %w", err)
@@ -223,6 +227,14 @@ func sanitizeServiceURL(baseURL, advertisedURL string) (string, error) {
 	return serviceURL(baseURL, u.RequestURI())
 }
 
+func unauthorizedServiceSOAPClient(baseURL, advertisedURL string, verbose bool) (*soap.Client, error) {
+	u, err := sanitizeServiceURL(baseURL, advertisedURL)
+	if err != nil {
+		return nil, err
+	}
+	return UnauthorizedSOAPClient(u, verbose), nil
+}
+
 func serviceSOAPClient(
 	baseURL, advertisedURL, username, password string, verbose bool, diff time.Duration,
 ) (*soap.Client, error) {
@@ -231,6 +243,17 @@ func serviceSOAPClient(
 		return nil, err
 	}
 	return AuthorizedSOAPClient(u, username, password, verbose, diff), nil
+}
+
+func UnauthorizedSOAPClient(serviceURL string, verbose bool) *soap.Client {
+	httpClient := http.DefaultClient
+	if verbose {
+		httpClient = verboseHTTPClient
+	}
+	client := soap.NewClient(serviceURL,
+		soap.WithHTTPClient(httpClient),
+	)
+	return client
 }
 
 func AuthorizedSOAPClient(
