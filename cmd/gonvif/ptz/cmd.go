@@ -23,6 +23,7 @@ func init() {
 		getNodes,
 		getPresets,
 		getServiceCapabilities,
+		getStatus,
 	)
 }
 
