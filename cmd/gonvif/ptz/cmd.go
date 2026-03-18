@@ -19,6 +19,7 @@ func init() {
 	root.RequireAuthFlags(cmd)
 	root.Command.AddCommand(cmd)
 	cmd.AddCommand(
+		absoluteMove,
 		getConfigurations,
 		getNodes,
 		getPresets,
